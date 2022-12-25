@@ -1,5 +1,7 @@
 # Como construir uma API Rest com Node e Express.js
 
+Aqui você encontra o que precisa saber para construir a sua API Rest do zero usando Node e Express.
+
 ## Sumário
 [Criando o ambiente de desenvolvimento](#criando-o-ambiente-de-desenvolvimento)
 
