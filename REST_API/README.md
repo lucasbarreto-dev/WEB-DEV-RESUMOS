@@ -6,7 +6,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
 [1 - Criando o ambiente de desenvolvimento](#criando-o-ambiente-de-desenvolvimento)
 
 
-# Criando o ambiente de desenvolvimento
+# 1 - Criando o ambiente de desenvolvimento
 
 <strong> 1.1 - Crie e navegue até o diretório do projeto. </strong>
 ```sh
