@@ -3,7 +3,7 @@
 Aqui você encontra o que precisa saber para construir a sua API Rest do zero usando Node e Express.
 
 ## Sumário
-[1 - Criando o ambiente de desenvolvimento](#criando-o-ambiente-de-desenvolvimento)
+[1 - Criando o ambiente de desenvolvimento](#1---criando-o-ambiente-de-desenvolvimento)
 
 
 # 1 - Criando o ambiente de desenvolvimento
