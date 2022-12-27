@@ -101,11 +101,9 @@
     touch .env
   ```
 
-  <br />
-
   <strong>Agora declare as variáveis de ambiente</strong>
 
-  ```json
+  ```env
     // .env
 
     MYSQL_USER=<seu nome>
