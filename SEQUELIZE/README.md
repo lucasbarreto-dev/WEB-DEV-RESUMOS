@@ -30,7 +30,8 @@
 ---
 
 ## 1 - Definição
-- <strong>Object-Relational Mapping</strong><p>(Mapeamento objeto-relacional)</p>
+- <strong>Object-Relational Mapping</strong>
+  <p>(Mapeamento objeto-relacional)</p>
 
   <strong>
     Técnica que permite fazer um mapeamento estrutural entre as entidades do banco de dados e os objetos que as representam no código Javascript.
