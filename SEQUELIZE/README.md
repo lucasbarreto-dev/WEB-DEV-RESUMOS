@@ -49,7 +49,6 @@
   <p>
     <strong>Biblioteca de ORM com métodos assíncronos.</strong>
   </p>
-<br />
 
 ---
 
@@ -95,7 +94,6 @@
 ---
 
 ## 5 - Conexão com o banco de dados
-
 - ### 5.1 - Crie o arquivo <strong>.env</strong> na raíz do projeto.
 
 
@@ -126,8 +124,6 @@
     <p>A flag <strong>-e</strong> torna possível a interpretação da marcação <strong>\n</strong>, que indica quebra de linha em shellscript.</p>
 
 - ### <strong>5.2 - Usando as variáveis de ambiente para conectar Sequelize com o Banco de Dados</strong>
-  <br />
-
   - #### 5.2.1 - Mude o nome do arquivo <strong>config.json</strong> para <strong>config.js</strong>
     ```sh
       mv config/config.json config/config.js
@@ -161,7 +157,6 @@
     <p>
       <strong>dialect</strong>: Nome do bando de dados a ser utilizado.
     </p>
-    <br />
 
   - #### 5.2.3 - Altere a importação no arquivo <strong>index.js</strong>.
 
@@ -194,6 +189,5 @@
 ```sh
   npx sequelize db:create
 ```
-<br />
 
 ---
