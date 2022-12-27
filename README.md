@@ -2,5 +2,5 @@
 
 Este é um reposítório de conteúdo para referências rápidas. 
 
-Um repositório criado pela comunidade para a comunidade. 
+Um repositório criado pela comunidade para a comunidade. <br />
 Todos podem contribuir com resumos e consultar. 
