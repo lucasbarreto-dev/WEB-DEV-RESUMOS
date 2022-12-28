@@ -127,7 +127,6 @@
 ---
 
 ## 5 - Conexão com o banco de dados
-  <br />
 
 - ### <strong>5.1 - Crie o arquivo .env na raíz do projeto.</strong>
 
@@ -156,6 +155,8 @@
     ```
     <p>A flag <strong>-e</strong> torna possível a interpretação da marcação <strong>\n</strong>, que indica quebra de linha em shellscript.</p>
 
+  <br />
+  
 - ### <strong>5.2 - Usando as variáveis de ambiente para conectar Sequelize com o Banco de Dados</strong>
   - #### <strong>5.2.1</strong> - Mude o nome do arquivo <strong>config.json</strong> para <strong>config.js</strong>
     ```sh
