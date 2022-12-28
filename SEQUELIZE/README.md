@@ -82,7 +82,7 @@
 
 ## 4 - Inicialização do Sequelize
 
-<p>No terminal, verifique que está na <strong>raíz</strong> do projeto e execute:</p>
+<p>No terminal, verifique que esteja na <strong>raíz</strong> do projeto e execute:</p>
 
 ```sh
   cd src
