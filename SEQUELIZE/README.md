@@ -127,7 +127,9 @@
 ---
 
 ## 5 - Conexão com o banco de dados
-- ### 5.1 - Crie o arquivo <strong>.env</strong> na raíz do projeto.
+  <br />
+
+- ### <strong>5.1 - Crie o arquivo .env na raíz do projeto.</strong>
 
 
   ```sh
@@ -179,6 +181,7 @@
           production: config, 
         };
     ```
+    <br />
   - #### <strong>5.2.2</strong> - Altere a importação no arquivo <strong>index.js</strong>.
 
     ```js
