@@ -47,9 +47,11 @@
 ---
 
 ## 2 - Sequelize
-  <p>
-    <strong>Biblioteca de ORM com métodos assíncronos.</strong>
-  </p>
+  - <strong>Biblioteca de ORM com métodos assíncronos.</strong>
+  - <strong>Terceirização da camada Model:</strong>
+    - Cria o banco de dados <strong>(Migrations)</strong>;
+    - Adiciona os dados ao banco <strong>(Seeders)</strong>;
+    - Efetua as Queries;
 
 ---
 
