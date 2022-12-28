@@ -182,16 +182,19 @@
           production: config, 
         };
     ```
+
+    - <p>
+        <strong>dialect</strong> = Nome do banco de dados a ser utilizado.
+      </p>
+
     <br />
+
   - #### <strong>5.2.2</strong> - Altere a importação no arquivo <strong>index.js</strong>.
 
     ```js
       const config = require(__dirname + '/../config/config.js')[env];
     ```
 
-    - <p>
-        <strong>dialect</strong> = Nome do bando de dados a ser utilizado.
-      </p>
 
     <br />
 
