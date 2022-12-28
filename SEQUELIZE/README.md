@@ -214,7 +214,7 @@
       };
     ```
 
-    <strong>Nota: É possível você executar este passo antes de executar o [passo 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
+    <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
 
     <br />
 ---    
