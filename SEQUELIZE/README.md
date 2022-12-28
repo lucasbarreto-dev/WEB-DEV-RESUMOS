@@ -144,7 +144,7 @@
         };
       
         module.exports = {
-          developoment: config, 
+          development: config, 
           test: config, 
           production: config, 
         };
