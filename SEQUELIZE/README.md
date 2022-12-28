@@ -27,11 +27,9 @@
       
       - [5.2.2 - Altere a importação no arquivo index.js.](#522---altere-a-importação-no-arquivo-indexjs)
 
-      - [5.2.3 - Altere a importação no arquivo index.js.](#523---altere-a-importação-no-arquivo-indexjs)
+      - [5.2.3 - Rode um container MySQL pelo Docker.](#523---rode-um-container-mysql-pelo-docker)
 
-      - [5.2.4 - Rode um container MySQL pelo Docker.](#524---rode-um-container-mysql-pelo-docker)
-
-      - [5.2.5 - Crie o arquivo .sequelizerc na raíz do projeto.](#525---crie-o-arquivo-sequelizerc-na-raíz-do-projeto)
+      - [5.2.4 - Crie o arquivo .sequelizerc na raíz do projeto.](#524---crie-o-arquivo-sequelizerc-na-raíz-do-projeto)
 
   - [6 - Criando o banco de dados](#6---criando-o-banco-de-dados)
   
@@ -157,7 +155,7 @@
     <p>A flag <strong>-e</strong> torna possível a interpretação da marcação <strong>\n</strong>, que indica quebra de linha em shellscript.</p>
 
 - ### <strong>5.2 - Usando as variáveis de ambiente para conectar Sequelize com o Banco de Dados</strong>
-  - #### 5.2.1 - Mude o nome do arquivo <strong>config.json</strong> para <strong>config.js</strong>
+  - #### <strong>5.2.1</strong> - Mude o nome do arquivo <strong>config.json</strong> para <strong>config.js</strong>
     ```sh
       mv config/config.json config/config.js
     ```
@@ -181,23 +179,23 @@
           production: config, 
         };
     ```
-  - #### 5.2.2 - Altere a importação no arquivo <strong>index.js</strong>.
+  - #### <strong>5.2.2</strong> - Altere a importação no arquivo <strong>index.js</strong>.
 
     ```js
       const config = require(__dirname + '/../config/config.js')[env];
     ```
 
-    <p>
-      <strong>dialect</strong>: Nome do bando de dados a ser utilizado.
-    </p>
+    - <p>
+        <strong>dialect</strong> = Nome do bando de dados a ser utilizado.
+      </p>
 
-  - #### 5.2.3 - Altere a importação no arquivo <strong>index.js</strong>.
+    <br />
 
-    ```js
-      const config = require(__dirname + '/../config/config.js')[env];
-    ```
-  - #### 5.2.4 - Rode um container MySQL pelo Docker.
-  - #### 5.2.5 - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
+  - #### <strong>5.2.3</strong> - Rode um container MySQL pelo Docker.
+  <br />
+
+  - #### <strong>5.2.4</strong> - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
+
     ```sh
       touch .sequelizerc
     ```
@@ -217,6 +215,8 @@
     ```
 
     <strong>Nota: É possível você executar este passo antes de executar o comando <code> npx sequelize-cli init </code>
+
+    <br />
 ---    
 
 ## 6 - Criando o banco de dados
