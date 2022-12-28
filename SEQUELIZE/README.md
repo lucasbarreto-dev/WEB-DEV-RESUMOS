@@ -27,11 +27,11 @@
       
       - [5.2.2 - Altere a importação no arquivo index.js.](#522---altere-a-importação-no-arquivo-indexjs)
 
-      - [5.2.3 - Rode um container MySQL pelo Docker.](#523---rode-um-container-mysql-pelo-docker)
+  - [6 - Rode um container MySQL pelo Docker.](#6---rode-um-container-mysql-pelo-docker)
 
-      - [5.2.4 - Crie o arquivo .sequelizerc na raíz do projeto.](#524---crie-o-arquivo-sequelizerc-na-raíz-do-projeto)
+  - [7 - Crie o arquivo .sequelizerc na raíz do projeto.](#7---crie-o-arquivo-sequelizerc-na-raíz-do-projeto)
 
-  - [6 - Criando o banco de dados](#6---criando-o-banco-de-dados)
+  - [8 - Criando o banco de dados](#8---criando-o-banco-de-dados)
   
 ---
 
@@ -198,38 +198,43 @@
 
     <br />
 
-  - #### <strong>5.2.3</strong> - Rode um container MySQL pelo Docker.
-    <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
+---
 
-    <br />
+## <strong>6</strong> - Rode um container MySQL pelo Docker.
+  <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
 
-  - #### <strong>5.2.4</strong> - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
+  <br />
 
-    ```sh
-      touch .sequelizerc
-    ```
+---
 
-    A função desse arquivo é exportar os itens criados na inicialização na [seção 4](#4---inicialização-do-sequelize):
+## <strong>7</strong> - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
 
-      ```js
-      // .sequelizerc
+  ```sh
+    touch .sequelizerc
+  ```
 
-        const path = require('path');
+  A função desse arquivo é exportar os itens criados na inicialização na [seção 4](#4---inicialização-do-sequelize):
 
-        module.exports = {
-          'config': path.resolve('src', 'config', 'config.js'),
-          'models-path': path.resolve('src', 'models'),
-          'seeders-path': path.resolve('src', 'seeders'),
-          'migrations-path': path.resolve('src', 'migrations')
-        };
-      ```
+  ```js
+  // .sequelizerc
 
-    <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
+    const path = require('path');
 
-    <br />
+    module.exports = {
+      'config': path.resolve('src', 'config', 'config.js'),
+      'models-path': path.resolve('src', 'models'),
+      'seeders-path': path.resolve('src', 'seeders'),
+      'migrations-path': path.resolve('src', 'migrations')
+    };
+  ```
+
+  <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
+
+  <br />
+
 ---    
 
-## 6 - Criando o banco de dados
+## 8 - Criando o banco de dados
 
 ```sh
   npx sequelize db:create
