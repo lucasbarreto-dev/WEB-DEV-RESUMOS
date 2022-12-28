@@ -63,7 +63,7 @@
 ```sh
   npm install -D sequelize-cli@6.2
 ```
-  <p>O <strong>sequelize-cli</strong> é uma dependência de desenvolvimento serve para gerar e executar as operações.</p>
+  <p>O <strong>sequelize-cli</strong> é uma dependência de desenvolvimento que serve para gerar e executar as operações.</p>
   <br />
 
 ```sh
@@ -82,9 +82,11 @@
 
 ## 4 - Inicialização do Sequelize
 
+<p>No terminal, verifique que está na <strong>raíz</strong> do projeto e execute:</p>
+
 ```sh
   cd src
-  npx sequelize-cli init
+  npx sequelize init
 ```
 
 <p>O comando acima cria 4 diretórios na pasta src:</p>
@@ -183,6 +185,8 @@
         'migrations-path': path.resolve('src', 'migrations')
       };
     ```
+
+    <strong>Nota: É possível você executar este passo antes de executar o comando <code> npx sequelize-cli init </code>
 ---    
 
 ## 6 - Criando o banco de dados
