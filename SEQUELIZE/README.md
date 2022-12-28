@@ -199,7 +199,9 @@
     <br />
 
   - #### <strong>5.2.3</strong> - Rode um container MySQL pelo Docker.
-  <br />
+    <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
+
+    <br />
 
   - #### <strong>5.2.4</strong> - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
 
