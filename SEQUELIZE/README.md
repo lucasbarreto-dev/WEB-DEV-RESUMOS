@@ -6,6 +6,14 @@
   - [2 - Sequelize](#2---Sequelize)
 
   - [3 - Instalação do Sequelize e das dependências necessárias](#3---instalação-do-sequelize-e-das-dependências-necessárias)
+  
+    - [3.1 - Instalar o Sequelize](#31---instalar-o-sequelize)
+
+    - [3.2 - Instalar o sequelize-cli](#32---instalar-o-sequelize-cli)
+
+    - [3.3 - Instalar o mysql2](#33---instalar-o-mysql2)
+
+    - [3.4 - Instalar o dotenv](#34---instalar-o-dotenv)
 
   - [4 - Inicialização do Sequelize](#4---inicialização-do-sequelize)
 
@@ -56,27 +64,49 @@
 ---
 
 ## 3 - Instalação do Sequelize e das dependências necessárias
-```sh
-  npm i sequelize@6.3
-```
+  - ### <strong>3.1 - Instalar o Sequelize</strong>
 
-```sh
-  npm install -D sequelize-cli@6.2
-```
-  <p>O <strong>sequelize-cli</strong> é uma dependência de desenvolvimento que serve para gerar e executar as operações.</p>
-  <br />
+    ```sh
+      npm i sequelize@6.3
+    ```
+    <br />
 
-```sh
-  npm i mysql@2.3
-```
-  <p>Precisamos usar o <strong>mysql2</strong> para combinar o MySQL com o Sequelize.</p>
+  - ### <strong>3.2 - Instalar o sequelize-cli</strong>
 
-  <br />
+    ```sh
+      npm install -D sequelize-cli@6.2
+    ```
 
-```sh
-  npm i dotenv@10.0
-```
-<br />
+    - <p>O <strong>sequelize-cli</strong> é uma dependência de desenvolvimento que serve para gerar e executar as operações.<br />Ao rodar os comandos </p>
+
+      ```sh
+        npx sequelize help
+      ```
+      <p><strong>ou</strong></p>
+
+      ```sh
+        npx sequelize-cli help 
+      ```
+
+      obtém-se resultados similares.
+
+      <br />
+
+  - ### <strong>3.3 - Instalar o mysql2</strong>
+
+    ```sh
+      npm i mysql2@2.3
+    ```
+      - <p>Precisamos usar o <strong>mysql2</strong> para combinar o MySQL com o Sequelize.</p>
+
+      <br />
+  
+  - ### <strong>3.4 - Instalar o dotenv</strong>
+
+    ```sh
+      npm i dotenv@10.0
+    ```
+    <br />
 
 ---
 
