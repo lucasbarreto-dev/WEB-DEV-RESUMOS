@@ -36,18 +36,18 @@
 ---
 
 ## 1 - Definição
-- <strong>Object-Relational Mapping</strong>
-  <p>(Mapeamento objeto-relacional)</p>
+<p><strong>Object-Relational Mapping</strong>: (Mapeamento objeto-relacional)</p>
 
-  <strong>
-    Técnica que permite fazer um mapeamento estrutural entre as entidades do banco de dados e os objetos que as representam no código Javascript.
-  </strong> 
+<p>
+  Técnica que permite fazer um mapeamento estrutural entre as entidades do banco de dados e os objetos que as representam no código Javascript.
+</p>
 
   <br />
 
   ```js
   // App -> Mapeamento objeto-relacional -> Banco de dados
   ```
+
   <br />
 
 ---
@@ -206,20 +206,21 @@
     ```sh
       touch .sequelizerc
     ```
+
     A função desse arquivo é exportar os itens criados na inicialização na [seção 4](#4---inicialização-do-sequelize):
 
-    ```js
-    // .sequelizerc
+      ```js
+      // .sequelizerc
 
-      const path = require('path');
+        const path = require('path');
 
-      module.exports = {
-        'config': path.resolve('src', 'config', 'config.js'),
-        'models-path': path.resolve('src', 'models'),
-        'seeders-path': path.resolve('src', 'seeders'),
-        'migrations-path': path.resolve('src', 'migrations')
-      };
-    ```
+        module.exports = {
+          'config': path.resolve('src', 'config', 'config.js'),
+          'models-path': path.resolve('src', 'models'),
+          'seeders-path': path.resolve('src', 'seeders'),
+          'migrations-path': path.resolve('src', 'migrations')
+        };
+      ```
 
     <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
 
