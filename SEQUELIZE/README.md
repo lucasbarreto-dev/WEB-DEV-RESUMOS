@@ -200,14 +200,14 @@
 
 ---
 
-## <strong>6</strong> - Rode um container MySQL pelo Docker.
+## 6 - Rode um container MySQL pelo Docker.
   <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
 
   <br />
 
 ---
 
-## <strong>7</strong> - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
+## 7 - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
 
   ```sh
     touch .sequelizerc
@@ -228,8 +228,7 @@
     };
   ```
 
-  <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize) ( <code>npx sequelize init</code> ).
-
+  <strong>Nota: É possível você executar este passo antes de executar o passo na [seção 4](#4---inicialização-do-sequelize)</strong> ( <code>npx sequelize init</code> ).
   <br />
 
 ---    
@@ -241,3 +240,16 @@
 ```
 
 ---
+
+## 9 - Sobre a Camada Model
+  - ### 9.1 - Model 
+    - <strong>Trata-se da representação em objeto de uma tabela que existe ou vai existir no banco de dados.</strong>
+    
+    <br />
+
+    <p>A função que vai definir os modelos na arquitetura usando sequelize é</p> 
+    
+    ```js
+    sequelize.define('nome do modelo', 'schema');
+    ```
+    
