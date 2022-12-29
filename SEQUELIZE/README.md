@@ -252,4 +252,6 @@
     ```js
     sequelize.define('nome do modelo', 'schema');
     ```
+    <img src="lucasbarreto92/WEB-DEV-RESUMOS/SEQUELIZE/public/tabela vs objeto.jpg">
     
+    - <strong>DISCLAIMER:</strong> imagem meramente ilustrativa, só pra pegar a visão.<br /> Não é bem assim que fazemos. 🙂 
