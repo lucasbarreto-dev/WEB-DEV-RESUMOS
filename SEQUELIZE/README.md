@@ -33,6 +33,9 @@
 
   - [8 - Criando o banco de dados](#8---criando-o-banco-de-dados)
   
+  - [9 - A camada Model](#9---sobre-a-camada-model)
+    - [9.1 - O que é um Schema](#91---o-que-é-um-schema)
+
 ---
 
 ## 1 - Definição
@@ -241,17 +244,58 @@
 
 ---
 
-## 9 - Sobre a Camada Model
-  - ### 9.1 - Model 
-    - <strong>Trata-se da representação em objeto de uma tabela que existe ou vai existir no banco de dados.</strong>
-    
-    <br />
+## 9 - A Camada Model
+  
+  - Aqui acontece a representação em objeto de uma tabela que existe ou vai existir no banco de dados.
 
-    <p>A função que vai definir os modelos na arquitetura usando sequelize é</p> 
-    
-    ```js
-    sequelize.define('nome do modelo', 'schema');
-    ```
-    <img src="lucasbarreto92/WEB-DEV-RESUMOS/SEQUELIZE/public/tabela vs objeto.jpg">
-    
-    - <strong>DISCLAIMER:</strong> imagem meramente ilustrativa, só pra pegar a visão.<br /> Não é bem assim que fazemos. 🙂 
+  <br />
+
+  <strong> Ao invés disso:</strong>
+
+  ```sql
+    DROP DATABASE IF EXISTS Rock;
+
+    CREATE DATABASE IF NOT EXISTS Rock;
+
+    USE Rock;
+
+    CREATE TABLE Songs (
+      id INT NOT NULL UNIQUE AUTO_INCREMENT,
+      band VARCHAR(255) NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+    )
+
+    INSERT INTO Songs (band, name) 
+      VALUES ('Queen', 'Bohemian Rhapsody');
+  ```
+  <br />
+  <strong>Você pode pensar nisso:</strong>
+
+  ```js
+    const Songs = {
+      id: 1,
+      band: 'Queen',
+      name: 'Bohemian Rhapsody'
+    } 
+  ```
+  Ao invés de usar SQL com Node.js, usando o driver mysql2,   
+  <br />
+
+  <p>A função que vai definir os modelos na arquitetura usando sequelize é</p> 
+  
+  ```js
+  sequelize.define('nome do modelo', 'schema');
+  ```
+  <!-- <img src="lucasbarreto92/WEB-DEV-RESUMOS/SEQUELIZE/public/tabela vs objeto.jpg)
+  
+  - <strong>DISCLAIMER:</strong> imagem meramente ilustrativa, só pra pegar a visão.<br /> Não é bem assim que fazemos. 🙂  -->
+
+  - ### 9.1 - <strong>O que é um Schema</strong>
+    [Neste link](https://www.freecodecamp.org/news/how-to-write-powerful-schemas-in-javascript-490da6233d37/#:~:text=A%20simple%20schema%20is%20just,between%20keys%20and%20default%20values.) há uma breve explicação, que em tradução livre é:<br />
+
+    <code>
+      "Um simples schema é apenas um mapa de chaves e tipos.<br />
+      É o mesmo que usar uma propriedade 'type'.<br />
+      Um schema também pode ser um mapeamento de chaves e valores padrão."
+    </code>
