@@ -253,11 +253,11 @@
   <strong> Ao invés disso:</strong>
 
   ```sql
-    DROP DATABASE IF EXISTS Rock;
+    --DROP DATABASE IF EXISTS Rock;
 
-    CREATE DATABASE IF NOT EXISTS Rock;
+    --CREATE DATABASE IF NOT EXISTS Rock;
 
-    USE Rock;
+    --USE Rock;
 
     CREATE TABLE Songs (
       id INT NOT NULL UNIQUE AUTO_INCREMENT,
@@ -273,13 +273,19 @@
   <strong>Você pode pensar nisso:</strong>
 
   ```js
-    const Songs = {
-      id: 1,
-      band: 'Queen',
-      name: 'Bohemian Rhapsody'
-    } 
+  // Rock/Songs.js
+
+    [
+      {
+        id: 1,
+        band: 'Queen',
+        name: 'Bohemian Rhapsody'
+      }
+    ]; 
   ```
-  Ao invés de usar SQL com Node.js, usando o driver mysql2,   
+  
+  Ao invés de usar MySQL com Node.js, usando o driver mysql2, agora você também tem a opção de trabalhar no código JS com um array de objetos que integram a tabela.   
+  
   <br />
 
   <p>A função que vai definir os modelos na arquitetura usando sequelize é</p> 
