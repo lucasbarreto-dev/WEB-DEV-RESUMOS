@@ -294,8 +294,6 @@
   - ### 9.1 - <strong>O que é um Schema</strong>
     [Neste link](https://www.freecodecamp.org/news/how-to-write-powerful-schemas-in-javascript-490da6233d37/#:~:text=A%20simple%20schema%20is%20just,between%20keys%20and%20default%20values.) há uma breve explicação, que em tradução livre é:<br />
 
-    <code>
-      "Um simples schema é apenas um mapa de chaves e tipos.<br />
+    <code>"Um simples schema é apenas um mapa de chaves e tipos.<br />
       É o mesmo que usar uma propriedade 'type'.<br />
-      Um schema também pode ser um mapeamento de chaves e valores padrão."
-    </code>
+      Um schema também pode ser um mapeamento de chaves e valores padrão."</code>
