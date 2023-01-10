@@ -7,6 +7,8 @@
 - ### Tipagem Forte (TS)
 <br />
 
+<hr>
+
 ## <strong>2 - TIPOS E SUBTIPOS</strong>
 
 ```js
@@ -35,6 +37,8 @@
 - <p>Em casos genéricos, se não houver especificação do tipo na declaraçào da variável, haverá inferência de tipo.</p>
 
 <br /> 
+
+<hr>
 
 ## <strong>3 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO</strong>
 - ### <strong>3.1 - Instalando o TS</strong>
@@ -69,13 +73,16 @@
     ```
     <br />
 
+<hr>
+
 ## <strong>4 - Hello, world!</strong> 
-- ### <strong>4.1 - Criamos o nosso script com extensão .ts</strong>
+- ### <strong>4.1 - Crie o script com extensão .ts</strong>
 
     ```sh
         touch Hello.ts 
     ```
 
+- ### <strong>4.2 - Crie uma função para imprimir 'Hello, world!'</strong>
     ```ts
         // Hello.js
 
@@ -85,7 +92,7 @@
 
         hello();
     ```
-    -  <p> A função apenas imprime no console sem retornar qualquer valor. Por isso, é tipada com 'void'.</p>
+    -  <p> A função apenas imprime no console sem retornar qualquer valor. <br />Por isso, é tipada com 'void'.</p>
     <br />
 
 - ### <strong>4.2 - Compilação</strong>
@@ -100,6 +107,6 @@
 
 - ### <strong>4.3 - Executando o arquivo em JS</strong>
     ```sh
-        > node hello.js
+        node hello.js
     ```
     
