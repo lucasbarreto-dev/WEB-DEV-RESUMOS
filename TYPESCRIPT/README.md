@@ -130,9 +130,13 @@
     ```sh
         node hello.js
     ```
-    - O retorno no console será:
+    <br />
+
+    O retorno no console será:
     
     ```sh
         Hello, world!
     ```
-    
+
+<br />   
+<hr>
