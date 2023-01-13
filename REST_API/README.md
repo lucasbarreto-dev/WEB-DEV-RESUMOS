@@ -80,11 +80,9 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
     // para inicializar o Nodemon
   ```
   <br />
-
-  <div>
-    <p>Ilustração do fluxo de importações do express ao server.js</p>
-    <img src="REST_API/public/Captura de Tela 2023-01-13 às 20.12.28.png">
-  </div>
+  
+  ![Ilustração do fluxo de importações do express ao server.js](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/REST_API/public/Captura%20de%20Tela%202023-01-13%20%C3%A0s%2020.12.28.png)
+ 
 
 ---
 
