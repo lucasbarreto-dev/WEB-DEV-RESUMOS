@@ -3,26 +3,37 @@
 Aqui você encontra o que precisa saber para construir a sua API Rest do zero usando Node e Express.
 
 ## Sumário
-[1 - Criando o ambiente de desenvolvimento](#1---criando-o-ambiente-de-desenvolvimento)
+ - [1 - Criando o ambiente de desenvolvimento](#1---criando-o-ambiente-de-desenvolvimento)
+    - [1.1 - Crie e navegue até o diretório do projeto.](#11---crie-e-navegue-até-o-diretório-do-projeto)
+    - [1.2 - Inicie o gerenciador de pacotes do node dentro do diretório.](#12---inicie-o-gerenciador-de-pacotes-do-node-dentro-do-diretório)
+    - [1.3 - Instale as dependências necessárias para desenvolver a API.](#13---instale-as-dependências-necessárias-para-desenvolver-a-api)
+    - [1.4 - Criar os arquivos app.js e server.js](#14---criar-os-arquivos-appjs-e-serverjs)
+    - [1.5 - Importar o express no arquivo app.js](#15---importar-o-express-no-arquivo-appjs)
+    - [1.6 - Importar o app dentro do arquivo server.js](#16---importar-o-app-dentro-do-arquivo-serverjs)
+    - [1.7 - Inicialização do servidor](#17---inicialização-do-servidor)
 
+<br />
+
+<hr>
 
 ### <strong>1 - Criando o ambiente de desenvolvimento</strong>
 
-  - <strong>1.1 - Crie e navegue até o diretório do projeto.</strong>
+  - #### <strong>1.1 - Crie e navegue até o diretório do projeto.</strong>
 
   ```sh
     mkdir nome_do_projeto && cd nome_do_projeto
   ```
  <br />
 
-  - <strong>1.2 - Inicie o gerenciador de pacotes do node dentro do diretório.</strong>
+  - #### <strong>1.2 - Inicie o gerenciador de pacotes do node dentro do diretório.</strong>
 
   ```sh
     npm init -y
   ```
  <br />
 
-  - <strong>1.3 - Instale as dependências necessárias para desenvolver a API.</strong>
+  - #### <strong>1.3 - Instale as dependências necessárias para desenvolver a API.</strong>
+
   ```sh
     npm i express@4.17 
     // framework usado para construir APIs Rest no ambiente Node.js.
@@ -41,7 +52,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
   ```
   <br />
 
-  - <strong>1.4 - Criar os arquivos app.js e server.js</strong>
+  - #### <strong>1.4 - Criar os arquivos app.js e server.js</strong>
   
   ```sh
     cd src
@@ -50,7 +61,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
 
   <br />
 
-  - <strong>1.5 - Importar o express no arquivo app.js</strong>
+  - #### <strong>1.5 - Importar o express no arquivo app.js</strong>
   ```js
     const express = require('express');
 
@@ -61,7 +72,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
 
   <br />
 
-  - <strong>1.6 - Importar o app dentro do arquivo server.js</strong>
+  - #### <strong>1.6 - Importar o app dentro do arquivo server.js</strong>
   ```js
     const app = require('./app');
 
@@ -70,7 +81,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
   
   <br />
 
-  - <strong>1.7 - Inicialização do servidor</strong>
+  - #### <strong>1.7 - Inicialização do servidor</strong>
 
   ```sh
     npm start
