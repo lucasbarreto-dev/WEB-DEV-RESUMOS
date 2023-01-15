@@ -38,7 +38,7 @@
 
 ---
 
-## 1 - Definição
+## <strong>1 - Definição</strong>
 <p><strong>Object-Relational Mapping</strong>: (Mapeamento objeto-relacional)</p>
 
 <p>
@@ -55,7 +55,7 @@
 
 ---
 
-## 2 - Sequelize
+## <strong>2 - Sequelize</strong>
   - <strong>Biblioteca de ORM com métodos assíncronos.</strong>
   - <strong>Terceirização da camada Model:</strong>
     - Cria o banco de dados <strong>(Migrations)</strong>;
@@ -64,7 +64,7 @@
 
 ---
 
-## 3 - Instalação do Sequelize e das dependências necessárias
+## <strong>3 - Instalação do Sequelize e das dependências necessárias</strong>
   - ### <strong>3.1 - Instalar o Sequelize</strong>
 
     ```sh
@@ -111,7 +111,7 @@
 
 ---
 
-## 4 - Inicialização do Sequelize
+## <strong>4 - Inicialização do Sequelize</strong>
 
 <p>No terminal, verifique que esteja na <strong>raíz</strong> do projeto e execute:</p>
 
@@ -129,7 +129,7 @@
 
 ---
 
-## 5 - Conexão com o banco de dados
+## <strong>5 - Conexão com o banco de dados</strong>
 
 - ### <strong>5.1 - Crie o arquivo .env na raíz do projeto.</strong>
 
@@ -203,14 +203,14 @@
 
 ---
 
-## 6 - Rode um container MySQL pelo Docker.
+## <strong>6 - Rode um container MySQL pelo Docker.</strong>
   <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
 
   <br />
 
 ---
 
-## 7 - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.
+## <strong>7 - Crie o arquivo <strong>.sequelizerc</strong> na raíz do projeto.</strong>
 
   ```sh
     touch .sequelizerc
@@ -236,7 +236,7 @@
 
 ---    
 
-## 8 - Criando o banco de dados
+## <strong>8 - Criando o banco de dados</strong>
 
 ```sh
   npx sequelize db:create
@@ -244,7 +244,7 @@
 
 ---
 
-## 9 - A Camada Model
+## <strong>9 - A Camada Model</strong>
   
   - Aqui acontece a representação em objeto de uma tabela que existe ou vai existir no banco de dados.
 
@@ -273,7 +273,7 @@
   <strong>Você pode pensar nisso:</strong>
 
   ```js
-  // src/migrations/[timestamp]-create-song.js
+  // src/migrations/[timestamp]-create-songs.js
 
   'use strict';
 
@@ -323,11 +323,8 @@
   <p>A função que vai definir os modelos na arquitetura usando sequelize é</p> 
   
   ```js
-  sequelize.define('nome do modelo', 'schema');
+  sequelize.define(<nome do modelo>, <schema>);
   ```
-  <!-- <img src="lucasbarreto92/WEB-DEV-RESUMOS/SEQUELIZE/public/tabela vs objeto.jpg)
-  
-  - <strong>DISCLAIMER:</strong> imagem meramente ilustrativa, só pra pegar a visão.<br /> Não é bem assim que fazemos. 🙂  -->
 
   - ### 9.1 - <strong>O que é um Schema</strong>
     [Neste link](https://www.freecodecamp.org/news/how-to-write-powerful-schemas-in-javascript-490da6233d37/#:~:text=A%20simple%20schema%20is%20just,between%20keys%20and%20default%20values.) há uma breve explicação, que em tradução livre é:<br />
@@ -335,3 +332,27 @@
     <code>"Um simples schema é apenas um mapa de chaves e tipos.<br />
       É o mesmo que usar uma propriedade 'type'.<br />
       Um schema também pode ser um mapeamento de chaves e valores padrão."</code>
+  
+  <br />
+  <strong>Pegando a tabela Songs como exemplo, podemos fazer:</strong>
+
+  ```js
+    // src/models/song.model.js
+
+    // Import the built-in data types
+    import { DataTypes } from '@sequelize/core';
+
+    const SongModel = (sequelize, DataTypes) => {
+      const Song = sequelize.define('Song', {
+        id: DataTypes.INTEGER,
+        band: DataTypes.STRING,
+        name: DataTypes.STRING
+      });
+      return Song;
+    };
+
+    module.exports = SongModel;
+
+  ```
+
+  
