@@ -340,7 +340,7 @@
     // src/models/song.model.js
 
     // Import the built-in data types
-    import { DataTypes } from '@sequelize/core';
+    const { DataTypes } = require('@sequelize/core');
 
     const SongModel = (sequelize, DataTypes) => {
       const Song = sequelize.define('Song', {
