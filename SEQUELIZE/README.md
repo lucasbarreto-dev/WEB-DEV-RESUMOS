@@ -252,55 +252,6 @@
 
   <strong>Ao invés disso:</strong>
 
-  ```sql
-    --DROP DATABASE IF EXISTS Rock;
-
-    --CREATE DATABASE IF NOT EXISTS Rock;
-
-    --USE Rock;
-
-    CREATE TABLE Songs (
-      id INT NOT NULL UNIQUE AUTO_INCREMENT,
-      band VARCHAR(255) NOT NULL,
-      name VARCHAR(255) NOT NULL,
-      PRIMARY KEY (id)
-    );
-
-    INSERT INTO Songs (band, name) 
-      VALUES ('Queen', 'Bohemian Rhapsody');
-  ```
-  <br />
-  <strong>Você pode pensar nisso:</strong>
-
-  ```js
-  // src/migrations/[timestamp]-create-songs.js
-
-  'use strict';
-
-  module.exports = {
-    up: async (queryInterface, Sequelize) => {
-      await queryInterface.createTable('Songs', {
-        id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true
-        },
-        band: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
-        name: {
-          type: Sequelize.STRING,
-          allowNull: false
-        }
-      });
-    };
-  };
-  ```
-
-  <strong>Ao invés disso:</strong>
-
   ![Tabela Canções](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/SEQUELIZE/public/Tabela%20Rock.png)
 
   <br />
@@ -355,4 +306,57 @@
 
   ```
 
+  ## <strong>10 - Migrations</strong>
+
+  <strong>Ao invés disso:</strong>
+
+  ```sql
+    --DROP DATABASE IF EXISTS Rock;
+
+    --CREATE DATABASE IF NOT EXISTS Rock;
+
+    --USE Rock;
+
+    CREATE TABLE Songs (
+      id INT NOT NULL UNIQUE AUTO_INCREMENT,
+      band VARCHAR(255) NOT NULL,
+      name VARCHAR(255) NOT NULL,
+      PRIMARY KEY (id)
+    );
+
+    INSERT INTO Songs (band, name) 
+      VALUES ('Queen', 'Bohemian Rhapsody');
+  ```
+
+  <br />
+  
+  <strong>Você pode pensar nisso:</strong>
+
+  ```js
+  // src/migrations/[timestamp]-create-songs.js
+
+  'use strict';
+
+  module.exports = {
+    up: async (queryInterface, Sequelize) => {
+      await queryInterface.createTable('Songs', {
+        id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true
+        },
+        band: {
+          type: Sequelize.STRING,
+          allowNull: false
+        },
+        name: {
+          type: Sequelize.STRING,
+          allowNull: false
+        }
+      });
+    };
+  };
+  ```
+  
   
