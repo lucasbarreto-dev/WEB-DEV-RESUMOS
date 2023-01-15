@@ -250,7 +250,7 @@
 
   <br />
 
-  <strong> Ao invés disso:</strong>
+  <strong>Ao invés disso:</strong>
 
   ```sql
     --DROP DATABASE IF EXISTS Rock;
@@ -273,15 +273,47 @@
   <strong>Você pode pensar nisso:</strong>
 
   ```js
-  // Rock/Songs.js
+  // src/migrations/[timestamp]-create-song.js
 
-    [
+  'use strict';
+
+  module.exports = {
+    up: async (queryInterface, Sequelize) => {
+      await queryInterface.createTable('Songs', {
+        id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true
+        },
+        band: {
+          type: Sequelize.STRING,
+          allowNull: false
+        },
+        name: {
+          type: Sequelize.STRING,
+          allowNull: false
+        }
+      });
+    };
+  };
+  ```
+
+  <strong>Ao invés disso:</strong>
+
+  ![Tabela Canções](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/SEQUELIZE/public/Tabela%20Rock.png)
+
+  <br />
+
+  <strong>Você pode pensar nisso:</strong>
+  ```js
+    // Rock/Songs.js
+
       {
         id: 1,
         band: 'Queen',
         name: 'Bohemian Rhapsody'
-      }
-    ]; 
+      }; 
   ```
   
   Ao invés de usar MySQL com Node.js, usando o driver mysql2, agora você também tem a opção de trabalhar no código JS com um array de objetos que integram a tabela.   
