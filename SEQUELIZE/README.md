@@ -305,6 +305,9 @@
     module.exports = SongModel;
 
   ```
+<br />
+
+<hr>
 
   ## <strong>10 - Migrations</strong>
 
@@ -327,8 +330,6 @@
     INSERT INTO Songs (band, name) 
       VALUES ('Queen', 'Bohemian Rhapsody');
   ```
-
-  <br />
   
   <strong>Você pode pensar nisso:</strong>
 
