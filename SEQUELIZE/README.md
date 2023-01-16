@@ -311,53 +311,71 @@
 
   ## <strong>10 - Migrations</strong>
 
-  <strong>Ao invés disso:</strong>
+  - ### <strong>10.1 - Criar as Migrations
 
-  ```sql
-    --DROP DATABASE IF EXISTS Rock;
+    <strong>Ao invés disso:</strong>
 
-    --CREATE DATABASE IF NOT EXISTS Rock;
+    ```sql
+      --DROP DATABASE IF EXISTS Rock;
 
-    --USE Rock;
+      --CREATE DATABASE IF NOT EXISTS Rock;
 
-    CREATE TABLE Songs (
-      id INT NOT NULL UNIQUE AUTO_INCREMENT,
-      band VARCHAR(255) NOT NULL,
-      name VARCHAR(255) NOT NULL,
-      PRIMARY KEY (id)
-    );
+      --USE Rock;
 
-    INSERT INTO Songs (band, name) 
-      VALUES ('Queen', 'Bohemian Rhapsody');
-  ```
-  
-  <strong>Você pode pensar nisso:</strong>
+      CREATE TABLE Songs (
+        id INT NOT NULL UNIQUE AUTO_INCREMENT,
+        band VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        PRIMARY KEY (id)
+      );
 
-  ```js
-  // src/migrations/[timestamp]-create-songs.js
+      INSERT INTO Songs (band, name) 
+        VALUES ('Queen', 'Bohemian Rhapsody');
+    ```
+    
+    <strong>Você pode pensar nisso:</strong>
 
-  'use strict';
+    ```js
+    // src/migrations/[timestamp]-create-songs.js
 
-  module.exports = {
-    up: async (queryInterface, Sequelize) => {
-      await queryInterface.createTable('Songs', {
-        id: {
-          type: Sequelize.INTEGER,
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true
-        },
-        band: {
-          type: Sequelize.STRING,
-          allowNull: false
-        },
-        name: {
-          type: Sequelize.STRING,
-          allowNull: false
-        }
-      });
+    'use strict';
+
+    module.exports = {
+      up: async (queryInterface, Sequelize) => {
+        await queryInterface.createTable('Songs', {
+          id: {
+            type: Sequelize.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
+          },
+          band: {
+            type: Sequelize.STRING,
+            allowNull: false
+          },
+          name: {
+            type: Sequelize.STRING,
+            allowNull: false
+          }
+        });
+      },
+      down: async (queryInterface, Sequelize) => {
+          await queryInterface.dropTable('Songs');
+      };
     };
-  };
-  ```
+
+    ```
+  <br />
+  
+  - ### <strong>10.2 - Rodar as Migrations</strong>
+
+    ```sh
+      npx sequelize db:migrate
+    ```
+
+    - <strong>Para desfazer as Migrations:</strong>
+    ```sh
+      npx sequelize db:migrate:undo
+    ```
   
   
