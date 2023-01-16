@@ -359,7 +359,7 @@
           }
         });
       },
-      down: async (queryInterface, Sequelize) => await queryInterface.dropTable('Songs');
+      down: async (queryInterface) => await queryInterface.dropTable('Songs');
     };
 
     ```
