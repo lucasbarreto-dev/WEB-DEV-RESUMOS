@@ -36,6 +36,9 @@
   - [9 - A camada Model](#9---sobre-a-camada-model)
     - [9.1 - O que é um Schema](#91---o-que-é-um-schema)
 
+  - [10 - Migrations](#10---migrations)
+    - [10.1 - Criando as Migrations](#101---criar-as-migrations)
+    - [10.2 - Rodando as Migrations](#102---rodar-as-migrations)
 ---
 
 ## <strong>1 - Definição</strong>
