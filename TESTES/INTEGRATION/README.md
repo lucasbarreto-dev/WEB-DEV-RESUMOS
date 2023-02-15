@@ -1,11 +1,23 @@
 # SUMÁRIO
-- [1.FERRAMENTAS](#ferramentas)
-  - [Mocha](#mocha);
-  - [Chai](#chai);
-  - [Sinon](#sinon);
-- [2.INSTALAÇÃO](#instalação)
+- [1. FERRAMENTAS](#ferramentas)
 
-<hr><br />
+  - [Mocha](#mocha);
+
+  - [Chai](#chai);
+
+  - [Sinon](#sinon);
+
+- [2. INSTALAÇÃO](#instalação)
+
+- [3. TESTES DE INTEGRAÇÃO](#3-testes-de-integração)
+
+- [4. IMPLEMENTAÇÃO DE TESTES](#4-implementação-de-testes)
+
+  - [4.1 - NA CAMADA MODEL](#1---na-camada-model)
+
+<br /> 
+<hr>
+<br />
 
 ## <strong>1. FERRAMENTAS</strong>
   - ### <strong>Mocha;</strong>
