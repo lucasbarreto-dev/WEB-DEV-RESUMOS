@@ -53,4 +53,22 @@
   ```
 <br />
 <hr>
+<br />
 
+## <strong>3. TESTES DE INTEGRAÇÃO</strong>
+  - <strong>Verificam se a comunicação entre os componentes está ocorrendo da forma esperada.</strong>
+
+  ```js
+    req --- middlewares ---> res
+  ```
+
+  <br />
+
+  - <strong>Contratos de API's</strong>
+    - As regras de entrada e saída de dados da API.
+
+  <br />
+
+    <p>
+      <strong>Ex.: endpoint GET /users/:id</strong>
+    </p>
