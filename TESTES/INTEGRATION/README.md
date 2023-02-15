@@ -29,8 +29,8 @@
       // describe('', function () {
 
         // it('', function () {
-
-          expect(2 + 2).to.be.equal(4);
+          const FOUR = 4;
+          expect(2 + 2).to.be.equal(FOUR);
         // }); 
 
       // });
