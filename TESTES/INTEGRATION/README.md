@@ -1,8 +1,8 @@
 # SUMÁRIO
 - [1.FERRAMENTAS](#ferramentas)
   - [Mocha](#mocha);
-  - Chai;
-  - Sinon;
+  - [Chai](#chai);
+  - [Sinon](#sinon);
 - [2.INSTALAÇÃO](#instalação)
 
 <hr><br />
@@ -22,15 +22,29 @@
  
   <br />
 
-  - <strong>Chai;</strong>
-  <p></p>
+  - ### <strong>Chai;</strong>
+  <p>Do Chai extraímos o expect e os getters</p>
+
+  ```js
+      // describe('', function () {
+
+        // it('', function () {
+
+          expect(2 + 2).to.be.equal(4);
+        // }); 
+
+      // });
+  ```
+
   <br />
 
 
-  - <strong>Sinon;</strong>
-    - Stubs (dublês de teste) 
+  - ### <strong>Sinon;</strong>
+    <p>Stubs (dublês de teste)</p> 
 
-<hr><br />
+<hr>
+
+<br />
 
 ## <strong>2. INSTALAÇÃO</strong>
 
