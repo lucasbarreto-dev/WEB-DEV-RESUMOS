@@ -19,6 +19,8 @@
 
   - [4.3 - NA CAMADA CONTROLLER](#43---na-camada-controller)
 
+- [5. EXECUÇÃO DE TESTES](#5-execução-de-testes)
+
 <br /> 
 <hr>
 <br />
@@ -67,6 +69,9 @@
   ```sh
     npm i -D mocha chai
   ```
+
+  - <strong>-D</strong> = Dev dependency
+
 <br />
 <hr>
 <br />
@@ -248,6 +253,28 @@
           expect(res.status).to.have.been.calledWith(200);
           expect(res.json).to.have.been.calledWith(MOCK.elements);
         });
+  ```
+
+<br />
+<hr>
+<br />
+
+## <strong>5. EXECUÇÃO DE TESTES</strong>
+
+  <p>É interessante armazenar o script em um comando mais simples. Para isso, precisamos alterarar no <strong>package.json:</strong></p> 
+
+  ```json
+  // package.json
+
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --exit"
+  }
+  ```
+
+  <p>Após essa alteração no arquivo, basta ir ao terminal e acionar os testes pelo comando:</p>
+
+  ```sh
+    npm run test
   ```
 
 <br />
