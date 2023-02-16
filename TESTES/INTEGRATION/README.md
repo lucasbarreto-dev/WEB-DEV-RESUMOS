@@ -117,7 +117,7 @@
 
       it('Verifica se é retornada a listagem completa de elementos.', async function () {
         sinon.stub(connection, 'execute').resolves([mock]);
-        const response = await MODEL.getAllElements();
+        const response = await MODEL.getAll();
 
         expect(response).to.be.equal(mock);
       });
