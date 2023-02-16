@@ -212,6 +212,8 @@
 ## <strong>6 - Rode um container MySQL pelo Docker.</strong>
   <p> Se você estiver trabalhando no projeto com docker-compose, provavelmente já estará com um container para o MySQL rodando.</p>
 
+  ![Como inicializar o MySQL usando Docker](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/SEQUELIZE/public/Getting%20started%20with%20MySQL%20%2B%20Docker.excalidraw.png)
+
   <br />
 
 ---
