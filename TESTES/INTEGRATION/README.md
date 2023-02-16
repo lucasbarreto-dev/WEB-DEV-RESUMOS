@@ -56,7 +56,7 @@
 
 
   - ### <strong>Sinon;</strong>
-    <p>Stubs (dublês de teste)</p> 
+    Usado para criar os [Stubs](#stub---objeto-que-podemos-utilizar-para-simular-interações-com-dependências-externas-ao-que-estamos-testando), nossos dublês de teste.
 
 <br /> 
 <hr>
@@ -156,7 +156,7 @@
 
   <br />
   
-  <p><strong>Stub</strong> -> Objeto que podemos utilizar para simular interações com dependências externas ao que estamos testando.</p>
+  #### <strong>Stub</strong> -> Objeto que podemos utilizar para simular interações com dependências externas ao que estamos testando.
 
   <p>Criamos os dublês de teste com a funçao <code>sinon.stub()</code>, que recebe 2 parâmetros:</p>
 
