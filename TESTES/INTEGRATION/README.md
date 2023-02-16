@@ -1,11 +1,11 @@
 # SUMÁRIO
 - [1. FERRAMENTAS](#ferramentas)
 
-  - [Mocha](#mocha);
+  - [MOCHA](#mocha);
 
-  - [Chai](#chai);
+  - [CHAI](#chai);
 
-  - [Sinon](#sinon);
+  - [SINON](#sinon);
 
 - [2. INSTALAÇÃO](#instalação)
 
@@ -13,7 +13,11 @@
 
 - [4. IMPLEMENTAÇÃO DE TESTES](#4-implementação-de-testes)
 
-  - [4.1 - NA CAMADA MODEL](#1---na-camada-model)
+  - [4.1 - NA CAMADA MODEL](#41---na-camada-model)
+
+  - [4.2 - NA CAMADA SERVICE](#42---na-camada-service)
+
+  - [4.3 - NA CAMADA CONTROLLER](#43---na-camada-controller)
 
 <br /> 
 <hr>
@@ -95,10 +99,10 @@
 
   <br />
 
-  - ### <strong> 1 - Na camada Model</strong>
+  - ### <strong> 4.1 - Na camada Model</strong>
 
   ```js
-  // test.js
+  // /tests/integration/models/elements.model.test.js
 
     const { expect } = require('chai');
     const sinon = require('sinon');
@@ -123,7 +127,7 @@
   <strong>O mock da camanda model é feito com um array de objetos, tal qual o retorno da função</strong> <code>connection.execute()</code> 
   
   ```js
-  // ../../../tests/integration/mocks/mock
+  // ../../../tests/integration/models/mocks/mock
 
     const elements = [
       {
@@ -142,12 +146,16 @@
 
     module.exports = { elements };
   ``` 
+  <p><strong>Exemplo de mock da camada Model.</strong></p>
 
   <br />
 
-  <!-- - ### <strong>2 - Na camada Service</strong>
-
+  - ### <strong>4.2 - Na camada Service</strong>
+  
   ```js
+
+  // /tests/integration/services/elements.services.test.js
+
     const { expect } = require('chai');
     const sinon = require('sinon');
 
@@ -159,12 +167,56 @@
     describe('Testa a camada services para a rota /elements', function () {
       afterEach(function () { sinon.restore() });
 
-      it('Verifica se o endpoint "/elements" retorna todos os produtos cadastrados.', async function () {
-        sinon.stub(elements_MODEL, 'getAllElements').resolves(MOCK);
+      it('Verifica se o endpoint "/elements" retorna todos os elementos cadastrados.', async function () {
+
+        // aqui ocorre o mock da camada model
+        sinon.stub(MODEL, 'getAll').resolves(MOCK);
         
-        const result = await elements_SERVICE.getAllelementsService();
+        const result = await SERVICE.getAll();
         
         expect(result).to.be.deep.equal({ status: 200, data: MOCK });
+      }
+    }
+  ```
 
-  ``` -->
+<br />
+
+  - ### <strong>4.3 - Na camada Controller</strong>
+
+  ```js
+  // /tests/integration/controllers/elements.controller.test.js
+
+      const chai = require('chai');
+      const sinon = require('sinon');
+      const sinonChai = require('sinon-chai');
+
+      const { expect } = chai;
+      chai.use(sinonChai);
+
+      const SERVICE = require('../../../src/services/elements.service');
+      const CONTROLLER = require('../../../src/controllers/elements.controllers');
+      const MOCK = require('../models/mocks/elements.model.mock');
+
+      describe('Testa a camada controllers para a rota "/elements"', function () {
+        afterEach(function () { sinon.restore() });
+
+        it('Testa a função getAll da camada controller.', async function () {
+          const req = {};
+          const res = {};
+
+          res.status = sinon.stub().returns(res);
+          res.json = sinon.stub().returns();
+          
+          // aqui ocorre o mock da camada service
+          sinon.stub(SERVICE, 'getAll').resolves({
+            status: 200,
+            data: MOCK.elements
+          });
+          
+          await CONTROLLER.getAll(req, res);
+          
+          expect(res.status).to.have.been.calledWith(200);
+          expect(res.json).to.have.been.calledWith(MOCK.elements);
+        });
+  ```
 
