@@ -7,10 +7,10 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
     - [1.1 - Crie e navegue até o diretório do projeto.](#11---crie-e-navegue-até-o-diretório-do-projeto)
     - [1.2 - Inicie o gerenciador de pacotes do node dentro do diretório.](#12---inicie-o-gerenciador-de-pacotes-do-node-dentro-do-diretório)
     - [1.3 - Instale as dependências necessárias para desenvolver a API.](#13---instale-as-dependências-necessárias-para-desenvolver-a-api)
-    - [1.4 - Criar os arquivos app.js e server.js](#14---criar-os-arquivos-appjs-e-serverjs)
-    - [1.5 - Importar o express no arquivo app.js](#15---importar-o-express-no-arquivo-appjs)
-    - [1.6 - Importar o app dentro do arquivo server.js](#16---importar-o-app-dentro-do-arquivo-serverjs)
-    - [1.7 - Inicialização do servidor](#17---inicialização-do-servidor)
+    - [1.4 - Crie os arquivos app.js e server.js](#14---criar-os-arquivos-appjs-e-serverjs)
+    - [1.5 - Importe o express no arquivo app.js](#15---importar-o-express-no-arquivo-appjs)
+    - [1.6 - Importe o app dentro do arquivo server.js](#16---importar-o-app-dentro-do-arquivo-serverjs)
+    - [1.7 - Inicialize o servidor](#17---inicialização-do-servidor)
 
 <br />
 
@@ -97,7 +97,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
   ![Ilustração do fluxo de instalações e criação dos primeiros arquivos e diretórios](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/REST_API/public/Captura%20de%20Tela%202023-01-13%20%C3%A0s%2020.12.28.png)
   
   - Ilustração do fluxo de importações do express ao server.js
-  ![Ilustração do fluxo de importações do express ao server.js](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/REST_API/public/Captura%20de%20Tela%202023-01-13%20%C3%A0s%2020.12.43.png)
+  ![Ilustração do fluxo de importações do express ao server.js](https://github.com/lucasbarreto92/WEB-DEV-RESUMOS/blob/main/REST_API/public/Captura%20de%20Tela%202023-02-16%20%C3%A0s%2018.30.31.png)
 
 ---
 
