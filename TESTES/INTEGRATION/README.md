@@ -151,7 +151,25 @@
   <br />
 
   - ### <strong>4.2 - Na camada Service</strong>
+
+  <p>A partir da camada service, é necessário usar o <strong>sinon</strong> para mocar a camada anterior da camada em teste.</p>
+
+  <br />
   
+  <p><strong>Stub</strong> -> Objeto que podemos utilizar para simular interações com dependências externas ao que estamos testando.</p>
+
+  <p>Criamos os dublês de teste com a funçao <code>sinon.stub()</code>, que recebe 2 parâmetros:</p>
+
+  ```js
+  sinon.stub(a, b)
+
+  // a = Módulo que será simulado.
+  // b = Qual função do módulo vai ser simulada.
+
+  // no teste, usamos:
+  sinon.stub(a, b).resolves( <retorno esperado da função b> );
+  ```  
+
   ```js
 
   // /tests/integration/services/elements.services.test.js
@@ -182,6 +200,18 @@
 <br />
 
   - ### <strong>4.3 - Na camada Controller</strong>
+
+  <p>Recordando o uso do sinon para criar os "dublês de teste":</p>
+
+  ```js
+  sinon.stub(a, b)
+
+  // a = Módulo que será simulado.
+  // b = Qual função do módulo vai ser simulada.
+
+  // no teste, usamos:
+  sinon.stub(a, b).resolves( <retorno esperado da função b> );
+  ```
 
   ```js
   // /tests/integration/controllers/elements.controller.test.js
@@ -220,3 +250,6 @@
         });
   ```
 
+<br />
+<hr>
+<br />
