@@ -11,6 +11,7 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
     - [1.5 - Importe o express no arquivo app.js](#15---importar-o-express-no-arquivo-appjs)
     - [1.6 - Importe o app dentro do arquivo server.js](#16---importar-o-app-dentro-do-arquivo-serverjs)
     - [1.7 - Inicialize o servidor](#17---inicialização-do-servidor)
+    - [1.8 - Tornar JSON legível no app.js](#18---tornar-json-legível-no-app.js)
 
 <br />
 
@@ -84,11 +85,22 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
   - #### <strong>1.7 - Inicialização do servidor</strong>
 
   ```sh
-    npm start
+    npm run start
     // para inicializar o servidor (server.js)
 
     npm run dev
     // para inicializar o Nodemon
+  ```
+
+  - #### <strong>1.8 - Tornar JSON legível no app.js</strong>
+  ```js
+    // app.js
+    //const express = require('express');
+
+    // const app = express();
+    app.use(express.json());
+
+    // module.exports = app;
   ```
   <br />
   
