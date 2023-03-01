@@ -298,10 +298,7 @@
   ```js
     // src/models/song.model.js
 
-    // Import the built-in data types
-    const { DataTypes } = require('@sequelize/core');
-
-    const SongModel = (sequelize, DataTypes) => {
+    module.exports = (sequelize, DataTypes) => {
       const Song = sequelize.define('Song', {
         id: DataTypes.INTEGER,
         band: DataTypes.STRING,
@@ -309,8 +306,6 @@
       });
       return Song;
     };
-
-    module.exports = SongModel;
 
   ```
 <br />
