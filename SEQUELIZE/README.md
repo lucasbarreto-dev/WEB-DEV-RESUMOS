@@ -366,6 +366,13 @@
     };
 
     ```
+
+    Para chegar nesse resultado, basta executar o comando:
+
+    ```sh
+    npx sequelize migration:generate --name <nome da migration>
+    ```
+    
   <br />
   
   - ### <strong>10.2 - Rodar as Migrations</strong>
