@@ -3,7 +3,7 @@
 Aqui você encontra o que precisa saber para construir a sua API Rest do zero usando Node e Express.
 
 ## Sumário
- - [1 - Criando o ambiente de desenvolvimento](#1---criando-o-ambiente-de-desenvolvimento)
+- [1 - Criando o ambiente de desenvolvimento](#1---criando-o-ambiente-de-desenvolvimento)
     - [1.1 - Crie e navegue até o diretório do projeto.](#11---crie-e-navegue-até-o-diretório-do-projeto)
     - [1.2 - Inicie o gerenciador de pacotes do node dentro do diretório.](#12---inicie-o-gerenciador-de-pacotes-do-node-dentro-do-diretório)
     - [1.3 - Instale as dependências necessárias para desenvolver a API.](#13---instale-as-dependências-necessárias-para-desenvolver-a-api)
@@ -12,6 +12,8 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
     - [1.6 - Importe o app dentro do arquivo server.js](#16---importar-o-app-dentro-do-arquivo-serverjs)
     - [1.7 - Inicialize o servidor](#17---inicialização-do-servidor)
     - [1.8 - Tornar JSON legível no app](#18---tornar-json-legível-no-app)
+- [2 - Implementando os endpoints](#2---implementando-os-endpoints)
+
 
 <br />
 
@@ -115,6 +117,24 @@ Aqui você encontra o que precisa saber para construir a sua API Rest do zero us
 
 ---
 
-
+### <strong>2 - Implementando os endpoints</strong>
+  - <strong>Método GET (READ)</strong>
  
+    ```js
+      // src/app.js
+
+      // const express = require('express');
+
+      // const app = express();
+      // app.use(express.json());
+
+      app.get('/', (_req, res) => res.status(200).send('<h1>Hello, world!</h1>'));
+      // module.exports = app;
+    ```
+
+    <p>Agora vá na raíz do projeto e use o comando <code>npm run dev</code>.</p>
+    
+    <p>Acesse o <code>localhost:3000</code> no seu navegador.</p>
+  <br />
+
  
