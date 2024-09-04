@@ -12,7 +12,7 @@
   <p>No Ruby on Rails, generators são ferramentas de linha de comando que ajudam você a criar rapidamente arquivos e códigos padrão para tarefas comuns em uma aplicação Rails.</p>
   
 
-### <strong>1 - Iniciando o ambiente Ruby</strong>
+### <strong>1 - Iniciando o projeto Rails</strong>
 
   ```sh
     rails new Toy_App
