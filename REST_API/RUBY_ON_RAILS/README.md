@@ -8,7 +8,7 @@
 
 <hr>
 
-### <strong>0 - Generators</strong>
+### <strong>Generators</strong>
   <p>No Ruby on Rails, generators são ferramentas de linha de comando que ajudam você a criar rapidamente arquivos e códigos padrão para tarefas comuns em uma aplicação Rails.</p>
   
 
