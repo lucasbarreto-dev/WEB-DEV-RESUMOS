@@ -35,7 +35,7 @@ O Rails vem com vários geradores integrados para diferentes componentes de uma 
   ```sh
     rails generate controller ControllerName action1 action2
   ```
-
+  Exemplo:
   ```sh
     rails generate controller Users index show
   ```
