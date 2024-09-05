@@ -76,6 +76,12 @@ O Rails vem com vários geradores integrados para diferentes componentes de uma 
 
   - <code>Models, controllers, views, helpers, migrations, e test files para o Post resource</code>(Controller file)
 
+## Documentações e tutoriais
+- Documentação Oficial: [Ruby-Doc](https://ruby-doc.org)
+- Documentação colaborativa: [apidock](https://apidock.com/ruby)
+- Rubyapi.org: [rubyapi](https://rubyapi.org)
+- Ruby em vinte minutos: [ruby-lang](https://www.ruby-lang.org/pt/documentation/quickstart/)
+
 
 ### <strong>1 - Iniciando o projeto Rails</strong>
 
