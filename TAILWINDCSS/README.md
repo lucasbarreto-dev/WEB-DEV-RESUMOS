@@ -65,4 +65,4 @@
 
 ## Referência/Docs
 
-- Tailwind components: https://www.creative-tim.com/twcomponents/cheatsheet)
+- Tailwind components: https://www.creative-tim.com/twcomponents/cheatsheet
