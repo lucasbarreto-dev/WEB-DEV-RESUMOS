@@ -91,6 +91,8 @@ O Rails vem com vários geradores integrados para diferentes componentes de uma 
 - Documentação colaborativa: [apidock](https://apidock.com/ruby)
 - Rubyapi.org: [rubyapi](https://rubyapi.org)
 - Ruby em vinte minutos: [ruby-lang](https://www.ruby-lang.org/pt/documentation/quickstart/)
+- Rails 7 pagination with [Kaminari tutorial](https://bootrails.com/blog/rails-7-kaminari-pagination-tutorial/)
+- Various articles about Ruby on Rails [here](https://bootrails.com/categories/ruby-on-rails/?ref=dailydev)
 
 <hr>
 
