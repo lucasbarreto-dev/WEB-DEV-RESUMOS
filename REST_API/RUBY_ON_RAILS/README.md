@@ -98,12 +98,14 @@ O Rails vem com vários geradores integrados para diferentes componentes de uma 
 
 ## Iniciando um projeto Rails
 
+- <p>O primeiro comando abaixo cria um projeto com o mysql já especificado. Sem a flag <code>--database=mysql</code>, é criado com sqlite por padrão.</p>
+
   ```sh
-    rails new Toy_App
+    rails new <project-name> --database=mysql
   ```
 
   ```sh
-    cd Toy_App
+    cd <project-name>
   ```
 
   ```sh
