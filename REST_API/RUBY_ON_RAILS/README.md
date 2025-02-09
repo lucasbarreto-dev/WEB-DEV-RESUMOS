@@ -6,7 +6,7 @@
     - [Migration Generator](#migration-generator)
     - [Scaffold Generator](#scaffold-generator)
 - [Documentações e tutoriais](#documentações-e-tutoriais)
-- [Iniciando um projeto Rails](#iniciando-o-projeto-rails)
+- [Iniciando um projeto Rails](#iniciando-um-projeto-rails)
 
 
 <br />
