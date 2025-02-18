@@ -1,17 +1,26 @@
 # Sumário
+- [Documentações e tutoriais](#documentações-e-tutoriais)
 - [Generators](#generators)
   - [Generators comuns no Rails](#generators-comuns-no-rails)
     - [Model Generator](#model-generator)
     - [Controller Generator](#controller-generator)
     - [Migration Generator](#migration-generator)
     - [Scaffold Generator](#scaffold-generator)
-- [Documentações e tutoriais](#documentações-e-tutoriais)
 - [Iniciando um projeto Rails](#iniciando-um-projeto-rails)
 
 
 <br />
 
 <hr>
+
+## Documentações e tutoriais
+- Documentação Oficial: [Ruby-Doc](https://ruby-doc.org)
+- Documentação colaborativa: [apidock](https://apidock.com/ruby)
+- Rubyapi.org: [rubyapi](https://rubyapi.org)
+- Ruby em vinte minutos: [ruby-lang](https://www.ruby-lang.org/pt/documentation/quickstart/)
+- Rails 7 pagination with [Kaminari tutorial](https://bootrails.com/blog/rails-7-kaminari-pagination-tutorial/)
+- Various articles about Ruby on Rails [here](https://bootrails.com/categories/ruby-on-rails/?ref=dailydev)
+- Awesome-Ruby [here](https://github.com/markets/awesome-ruby)
 
 ## <strong>Generators</strong>
   <p>No Ruby on Rails, generators são ferramentas de linha de comando que ajudam você a criar rapidamente arquivos e códigos padrão para tarefas comuns em uma aplicação Rails.</p>
@@ -85,14 +94,6 @@ O Rails vem com vários geradores integrados para diferentes componentes de uma 
   Este comando gera:
 
   - <code>Models, controllers, views, helpers, migrations, e test files para o Post resource</code>(Controller file)
-
-## Documentações e tutoriais
-- Documentação Oficial: [Ruby-Doc](https://ruby-doc.org)
-- Documentação colaborativa: [apidock](https://apidock.com/ruby)
-- Rubyapi.org: [rubyapi](https://rubyapi.org)
-- Ruby em vinte minutos: [ruby-lang](https://www.ruby-lang.org/pt/documentation/quickstart/)
-- Rails 7 pagination with [Kaminari tutorial](https://bootrails.com/blog/rails-7-kaminari-pagination-tutorial/)
-- Various articles about Ruby on Rails [here](https://bootrails.com/categories/ruby-on-rails/?ref=dailydev)
 
 <hr>
 
