@@ -21,6 +21,7 @@
 - Rails 7 pagination with [Kaminari tutorial](https://bootrails.com/blog/rails-7-kaminari-pagination-tutorial/)
 - Various articles about Ruby on Rails [here](https://bootrails.com/categories/ruby-on-rails/?ref=dailydev)
 - Awesome-Ruby [here](https://github.com/markets/awesome-ruby)
+- Materiais para estudo - GURU-BR [here] (https://github.com/guru-br/materiais-para-estudo)
 
 ## <strong>Generators</strong>
   <p>No Ruby on Rails, generators são ferramentas de linha de comando que ajudam você a criar rapidamente arquivos e códigos padrão para tarefas comuns em uma aplicação Rails.</p>
