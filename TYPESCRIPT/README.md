@@ -89,7 +89,7 @@
     - #### <strong>1.2.3 - Instale o Typescript como dependência de desenvolvimento</strong>
     
     ```sh
-        npm i -D typescript@4.4
+        npm i -D typescript
     ```
     <br />
 
