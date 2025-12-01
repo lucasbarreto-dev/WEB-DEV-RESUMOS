@@ -65,12 +65,12 @@
     - #### <strong>1.1.1 - Para instalar globalmente na máquina</strong>
 
         ```sh
-            npm install -g typescript@4.4
+            npm install -g typescript
         ```
 
     - #### <strong>1.1.2 - Para instalar localmente no diretório do projeto (RECOMENDADO)</strong>
         ```sh
-            npm i -D typescript@4.4
+            npm i -D typescript
         ```
      <br />
 
