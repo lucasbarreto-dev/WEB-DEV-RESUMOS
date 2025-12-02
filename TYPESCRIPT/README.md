@@ -4,13 +4,13 @@
 <!-- - ### [1 - TIPAGEM](#1---tipagem) -->
 <!-- - ### [2 - TIPOS E SUBTIPOS](#2---tipos-e-subtipos) --->
 - ### [1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO](#1---criando-o-ambiente-de-desenvolvimento)
-    - ### [1.1 - INSTALANDO O TS](#11---instalando-o-ts)
+    <!-- - ### [1.1 - INSTALANDO O TS](#11---instalando-o-ts)
         - ### [1.1.1 - INSTALANDO O TS GLOBALMENTE](#111---para-instalar-globalmente-na-máquina)
-        - ### [1.1.2 - INSTALANDO NO DIRETÓRIO DO PROJETO (RECOMENDADO)](#112---para-instalar-localmente-no-diretório-do-projeto-recomendado)
-    - ### [1.2 - INICIANDO UM PROJETO](#12---iniciando-um-projeto)
-        - ### [1.2.1 - CRIANDO UM DIRETÓRIO](#121---criando-um-diretório)
-        - ### [1.2.2 - INICIANDO O NPM](#122---iniciando-o-gerenciador-de-módulos-do-nodejs)
-        - ### [1.2.3 - INSTALANDO O TS NO PROJETO](#123---instale-o-typescript-como-dependência-de-desenvolvimento)
+        - ### [1.1.2 - INSTALANDO NO DIRETÓRIO DO PROJETO (RECOMENDADO)](#112---para-instalar-localmente-no-diretório-do-projeto-recomendado) -->
+    - ### [1.1 - INICIANDO UM PROJETO](#11---iniciando-um-projeto)
+        - ### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
+        - ### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
+        - ### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
  - ### [2 - HELLO, WORLD!](#2---hello-world)
     - ### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts)
     - ### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
@@ -61,7 +61,7 @@
 <hr> -->
 
 ## <strong>1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO</strong>
-- ### <strong>1.1 - Instalando o TS</strong>
+<!-- - ### <strong>1.1 - Instalando o TS</strong>
     - #### <strong>1.1.1 - Para instalar globalmente na máquina</strong>
 
         ```sh
@@ -72,24 +72,36 @@
         ```sh
             npm i -D typescript
         ```
-     <br />
+     <br /> -->
 
-- ### <strong>1.2 - Iniciando um projeto</strong>
-    - #### <strong>1.2.1 - Crie um diretório para o projeto
+- ### <strong>1.1 - Iniciando um projeto</strong>
+    - #### <strong>1.1.1 - Crie um diretório para o projeto
     ```sh
         mkdir nomeDoProjeto && cd nomeDoProjeto
     ```
 
-    - #### <strong>1.2.2 - Iniciando o gerenciador de módulos do Node.js</strong>
+    - #### <strong>1.1.2 - Iniciando o gerenciador de módulos do Node.js</strong>
     
     ```sh
         npm init -y
     ```
 
-    - #### <strong>1.2.3 - Instale o Typescript como dependência de desenvolvimento</strong>
+    - #### <strong>1.1.3 - Instale o Typescript como dependência de desenvolvimento</strong>
+        - É importante assegurar a compatibilidade entre as versões
+            - do <strong>Typescript</strong> 
+            - do <strong>Node</strong> 
+            - da biblioteca <strong>@types/node</strong> 
     
     ```sh
-        npm i -D typescript
+
+        # Instalar a versão mais recente do TypeScript (devDependency) 
+        npm i -D typescript@latest
+        
+        # Instalar @types/node alinhado (por exemplo latest ou versão compatível com sua versão do Node) 
+        npm i -D @types/node@latest 
+        
+        # Instala a versão LTS mais recente do Node.js e define essa versão como ativa no terminal
+        nvm install --lts
     ```
     <br />
 
