@@ -7,7 +7,7 @@
     <!-- - ### [1.1 - INSTALANDO O TS](#11---instalando-o-ts)
         - ### [1.1.1 - INSTALANDO O TS GLOBALMENTE](#111---para-instalar-globalmente-na-máquina)
         - ### [1.1.2 - INSTALANDO NO DIRETÓRIO DO PROJETO (RECOMENDADO)](#112---para-instalar-localmente-no-diretório-do-projeto-recomendado) -->
-    - ### [1.1 - INICIANDO UM PROJETO](#11---iniciando-um-projeto)
+    - ### [1.1 - Iniciando um projeto](#11---iniciando-um-projeto)
         - ### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
         - ### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
         - ### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
@@ -16,6 +16,8 @@
     - ### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
     - ### [2.3 - Compilação](#23---compilação) 
     - ### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js)
+    - ### [2.5 - O arquivo tsconfig.json](#)
+
     
 <br /> 
 <hr>
@@ -150,5 +152,72 @@
         Hello, world!
     ```
 
-<br />   
+<br /> 
+
+- ### <strong>2.5 - tsconfig.json</strong>
+    Rodando o comando:
+    
+    ```sh
+        npx tsc --init
+    ```
+
+    Cria-se o arquivo:
+
+    ```json
+    {
+    // Visit https://aka.ms/tsconfig to read more about this file
+        "compilerOptions": {
+            // File Layout
+            // "rootDir": "./src",
+            // "outDir": "./dist",
+
+            // Environment Settings
+            // See also https://aka.ms/tsconfig/module
+            "module": "nodenext",
+            "target": "esnext",
+            "types": [],
+            // For nodejs:
+            // "lib": ["esnext"],
+            // "types": ["node"],
+            // and npm install -D @types/node
+
+            // Other Outputs
+            "sourceMap": true,
+            "declaration": true,
+            "declarationMap": true,
+
+            // Stricter Typechecking Options
+            "noUncheckedIndexedAccess": true,
+            "exactOptionalPropertyTypes": true,
+
+            // Style Options
+            // "noImplicitReturns": true,
+            // "noImplicitOverride": true,
+            // "noUnusedLocals": true,
+            // "noUnusedParameters": true,
+            // "noFallthroughCasesInSwitch": true,
+            // "noPropertyAccessFromIndexSignature": true,
+
+            // Recommended Options
+            "strict": true,
+            "jsx": "react-jsx",
+            "verbatimModuleSyntax": true,
+            "isolatedModules": true,
+            "noUncheckedSideEffectImports": true,
+            "moduleDetection": "force",
+            "skipLibCheck": true,
+        }
+    }
+    ```
+
+    É necessário descomentarmos as linhas:
+
+    ```json
+
+        // "rootDir": "./src",
+        // "outDir": "./dist",
+    ```
+
+    E setarmos os valores rootDir e outDir para os diretórios onde estão os códigos TS e onde os arquivos .js serão gerados, respectivamente.
+
 <hr>
