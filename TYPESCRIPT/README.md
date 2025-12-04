@@ -1,22 +1,20 @@
 # INTRODUÇÃO AO TS
 
 ## <strong> SUMÁRIO </strong>
-<!-- - ### [1 - TIPAGEM](#1---tipagem) -->
-<!-- - ### [2 - TIPOS E SUBTIPOS](#2---tipos-e-subtipos) --->
 - ### [1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO](#1---criando-o-ambiente-de-desenvolvimento)
-    <!-- - ### [1.1 - INSTALANDO O TS](#11---instalando-o-ts)
-        - ### [1.1.1 - INSTALANDO O TS GLOBALMENTE](#111---para-instalar-globalmente-na-máquina)
-        - ### [1.1.2 - INSTALANDO NO DIRETÓRIO DO PROJETO (RECOMENDADO)](#112---para-instalar-localmente-no-diretório-do-projeto-recomendado) -->
     - ### [1.1 - Iniciando um projeto](#11---iniciando-um-projeto)
-        - ### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
-        - ### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
-        - ### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
+        - #### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
+        - #### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
+        - #### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
  - ### [2 - HELLO, WORLD!](#2---hello-world)
-    - ### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts)
-    - ### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
-    - ### [2.3 - Compilação](#23---compilação) 
-    - ### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js)
-    - ### [2.5 - O arquivo tsconfig.json](#)
+    - #### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts)
+    - #### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
+    - #### [2.3 - Compilação](#23---compilação) 
+    - #### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js)
+
+
+- ### [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente)
+    - #### [3.1 - O arquivo tsconfig.json](#31---tsconfigjson)
 
     
 <br /> 
@@ -154,7 +152,9 @@
 
 <br /> 
 
-- ### <strong>2.5 - tsconfig.json</strong>
+
+## <strong>3 - AVANÇANDO NO SETUP DO AMBIENTE</strong> 
+- ### <strong>3.1 - tsconfig.json</strong>
     Rodando o comando:
     
     ```sh
