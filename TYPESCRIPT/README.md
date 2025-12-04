@@ -15,6 +15,7 @@
 
 - ### [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente)
     - #### [3.1 - O arquivo tsconfig.json](#31---tsconfigjson)
+    - #### [3.2 - Como usar o ts-node](#32---como-usar-o-ts-node)
 
     
 <br /> 
@@ -95,14 +96,21 @@
     ```sh
 
         # Instalar a versão mais recente do TypeScript (devDependency) 
-        npm i -D typescript@latest
+        npm i -D typescript
         
         # Instalar @types/node alinhado (por exemplo latest ou versão compatível com sua versão do Node) 
-        npm i -D @types/node@latest 
+        npm i -D @types/node 
         
         # Instala a versão LTS mais recente do Node.js e define essa versão como ativa no terminal
         nvm install --lts
     ```
+
+    - #### <strong>1.1.4 - Crie os diretórios <code>src</code> e <code>dist</code></strong>
+
+        - No diretório <code>src</code> devem ficar os arquivos de código <code>.ts</code>.
+        - No diretório <code>dist</code>, o compilador <code>tsc</code> criará automaticamente os arquivos <code>.js</code> após configurar o <code>tsconfig</code>. 
+
+    
     <br />
 
 <hr>
@@ -150,6 +158,7 @@
         Hello, world!
     ```
 
+    Ou seja, escrevemos o código em <code>typescript</code> e o comando <code>npx tsc nomeDoArquivo.ts</code> gera um arquivo <code>.js</code> para este ser executado. 
 <br /> 
 
 
@@ -210,7 +219,7 @@
     }
     ```
 
-    É necessário descomentarmos as linhas:
+    Caso esteja usando o compilador <code>tsc</code>, é necessário descomentarmos as linhas:
 
     ```json
 
@@ -218,6 +227,30 @@
         // "outDir": "./dist",
     ```
 
-    E setarmos os valores rootDir e outDir para os diretórios onde estão os códigos TS e onde os arquivos .js serão gerados, respectivamente.
+    E setarmos os valores <code>rootDir</code> para o diretório onde estão os arquivos <code>.ts</code> e <code>outDir</code> para o diretório onde os arquivos <code>.js</code> serão gerados.
+
+    Caso queira usar o <code>ts-node</code>, descomente somente a linha referente ao "rootDir". O <code>ts-node</code> ignora completamente a configuração outDir porque, por design, ele não escreve nenhum arquivo no sistema de arquivos.
+
+- ### <strong>3.2 - Como usar o <code>ts-node</code></strong>
+    ```sh
+        npm i -D ts-node
+    ```   
+
+    Após instalá-lo localmente no projeto como dependência de desenvolvimento, podemos usá-lo para executar o programa em apenas uma etapa, com uma linha de código.
+    
+    O <code>ts-node</code> transpila o código TypeScript inteiramente na memória RAM e passa o JavaScript resultante diretamente para o motor do <code>Node.js</code> executar, descartando o JS temporário logo em seguida.
+
+    Ou seja, se rodarmos o comando:
+    ```sh
+        npx ts-node hello.ts
+    ```
+    <br />
+
+    O retorno no console será:
+    
+    ```sh
+        Hello, world!
+    ```
+
 
 <hr>
