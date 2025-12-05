@@ -107,6 +107,12 @@
 
     - #### <strong>1.1.4 - Crie os diretórios <code>src</code> e <code>dist</code></strong>
 
+        - Na raíz do projeto, rode o comando:
+        ```sh
+        mkdir src dist
+        ```
+
+
         - No diretório <code>src</code> devem ficar os arquivos de código <code>.ts</code>.
         - No diretório <code>dist</code>, o compilador <code>tsc</code> criará automaticamente os arquivos <code>.js</code> após configurar o <code>tsconfig</code>. 
 
