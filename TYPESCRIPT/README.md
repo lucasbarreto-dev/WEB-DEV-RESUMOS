@@ -1,19 +1,20 @@
 # INTRODUÇÃO AO TS
 
-## <strong> SUMÁRIO </strong>
-- ### [1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO](#1---criando-o-ambiente-de-desenvolvimento)
-    - ### [1.1 - Iniciando um projeto](#11---iniciando-um-projeto)
+# <strong> SUMÁRIO </strong>
+- ## [1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO](#1---criando-o-ambiente-de-desenvolvimento)
+    - ## [1.1 - Iniciando um projeto](#11---iniciando-um-projeto)
         - #### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
         - #### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
         - #### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
- - ### [2 - HELLO, WORLD!](#2---hello-world)
+        - #### [1.1.4 - Crie os diretórios <code>src</code> e <code>dist</code> ](#114---crie-os-diretórios-src-e-dist)
+ - ## [2 - HELLO, WORLD!](#2---hello-world)
     - #### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts)
     - #### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
     - #### [2.3 - Compilação](#23---compilação) 
     - #### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js)
 
 
-- ### [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente)
+- ## [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente)
     - #### [3.1 - O arquivo tsconfig.json](#31---tsconfigjson)
     - #### [3.2 - Como usar o ts-node](#32---como-usar-o-ts-node)
 
