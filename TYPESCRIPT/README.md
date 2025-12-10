@@ -1,22 +1,22 @@
 # INTRODUÇÃO AO TS
 
 # <strong> SUMÁRIO </strong>
-- ## [1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO](#1---criando-o-ambiente-de-desenvolvimento)
-    - ## [1.1 - Iniciando um projeto](#11---iniciando-um-projeto)
-        - #### [1.1.1 - Criando um diretório](#111---criando-um-diretório)
-        - #### [1.1.2 - Iniciando o npm](#112---iniciando-o-gerenciador-de-módulos-do-nodejs)
-        - #### [1.1.3 - Instale o TS como dependência de desenvolvimento](#113---instale-o-typescript-como-dependência-de-desenvolvimento)
-        - #### [1.1.4 - Crie os diretórios <code>src</code> e <code>dist</code> ](#114---crie-os-diretórios-src-e-dist)
- - ## [2 - HELLO, WORLD!](#2---hello-world)
-    - #### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts)
-    - #### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world)
-    - #### [2.3 - Compilação](#23---compilação) 
-    - #### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js)
+- ## [1 - INICIANDO UM PROJETO](#1---iniciando-um-projeto-1)
+    <!-- - ## [1.1 - ](#11---iniciando-um-projeto) -->
+    - #### [1.1 - Criando um diretório](#11---crie-um-diretório-para-o-projeto)
+    - #### [1.2 - Iniciando o gerenciador de módulos do Node.js](#12---iniciando-o-gerenciador-de-módulos-do-nodejs)
+    - #### [1.3 - Instale o TS como dependência de desenvolvimento](#13---instale-o-typescript-como-dependência-de-desenvolvimento)
+    - #### [1.4 - Crie os diretórios <code>src</code> e <code>dist</code>](#14---crie-os-diretórios-src-e-dist)
 
+ - ## [2 - HELLO, WORLD!](#2---hello-world-1)
+    - #### [2.1 - Crie o script com extensão .ts](#21---crie-o-script-com-extensão-ts-1)
+    - #### [2.2 - Crie uma função para imprimir 'Hello, world!'](#22---crie-uma-função-para-imprimir-hello-world-1)
+    - #### [2.3 - Compilação](#23---compilação-1) 
+    - #### [2.4 - Executando o arquivo em JS](#24---executando-o-arquivo-em-js-1)
 
-- ## [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente)
-    - #### [3.1 - O arquivo tsconfig.json](#31---tsconfigjson)
-    - #### [3.2 - Como usar o ts-node](#32---como-usar-o-ts-node)
+- ## [3 - AVANÇANDO NO SETUP DO AMBIENTE](#3---avançando-no-setup-do-ambiente-1)
+    - #### [3.1 - O arquivo tsconfig.json](#31---o-arquivo-tsconfigjson-1)
+    - #### [3.2 - Como usar o ts-node](#32---como-usar-o-ts-node-1)
 
     
 <br /> 
@@ -62,63 +62,52 @@
 
 <hr> -->
 
-## <strong>1 - CRIANDO O AMBIENTE DE DESENVOLVIMENTO</strong>
-<!-- - ### <strong>1.1 - Instalando o TS</strong>
-    - #### <strong>1.1.1 - Para instalar globalmente na máquina</strong>
+## <strong>1 - INICIANDO UM PROJETO</strong>
 
-        ```sh
-            npm install -g typescript
-        ```
+<!-- - ### <strong>1.1 - Criando o ambiente de desenvolvimento</strong> -->
 
-    - #### <strong>1.1.2 - Para instalar localmente no diretório do projeto (RECOMENDADO)</strong>
-        ```sh
-            npm i -D typescript
-        ```
-     <br /> -->
+- ### <strong>1.1 - Crie um diretório para o projeto
+```sh
+    mkdir nomeDoProjeto && cd nomeDoProjeto
+```
 
-- ### <strong>1.1 - Iniciando um projeto</strong>
-    - #### <strong>1.1.1 - Crie um diretório para o projeto
+- ### <strong>1.2 - Iniciando o gerenciador de módulos do Node.js</strong>
+
+```sh
+    npm init -y
+```
+
+- ### <strong>1.3 - Instale o Typescript como dependência de desenvolvimento</strong>
+    - É importante assegurar a compatibilidade entre as versões
+        - do <strong>Typescript</strong> 
+        - do <strong>Node</strong> 
+        - da biblioteca <strong>@types/node</strong> 
+
+```sh
+
+    # Instalar a versão mais recente do TypeScript (devDependency) 
+    npm i -D typescript
+    
+    # Instalar @types/node alinhado (por exemplo latest ou versão compatível com sua versão do Node) 
+    npm i -D @types/node 
+    
+    # Instala a versão LTS mais recente do Node.js e define essa versão como ativa no terminal
+    nvm install --lts
+```
+
+- ### <strong>1.4 - Crie os diretórios <code>src</code> e <code>dist</code></strong>
+
+    - Na raíz do projeto, rode o comando:
     ```sh
-        mkdir nomeDoProjeto && cd nomeDoProjeto
+    mkdir src dist
     ```
 
-    - #### <strong>1.1.2 - Iniciando o gerenciador de módulos do Node.js</strong>
-    
-    ```sh
-        npm init -y
-    ```
 
-    - #### <strong>1.1.3 - Instale o Typescript como dependência de desenvolvimento</strong>
-        - É importante assegurar a compatibilidade entre as versões
-            - do <strong>Typescript</strong> 
-            - do <strong>Node</strong> 
-            - da biblioteca <strong>@types/node</strong> 
-    
-    ```sh
-
-        # Instalar a versão mais recente do TypeScript (devDependency) 
-        npm i -D typescript
-        
-        # Instalar @types/node alinhado (por exemplo latest ou versão compatível com sua versão do Node) 
-        npm i -D @types/node 
-        
-        # Instala a versão LTS mais recente do Node.js e define essa versão como ativa no terminal
-        nvm install --lts
-    ```
-
-    - #### <strong>1.1.4 - Crie os diretórios <code>src</code> e <code>dist</code></strong>
-
-        - Na raíz do projeto, rode o comando:
-        ```sh
-        mkdir src dist
-        ```
+    - No diretório <code>src</code> devem ficar os arquivos de código <code>.ts</code>.
+    - No diretório <code>dist</code>, o compilador <code>tsc</code> criará automaticamente os arquivos <code>.js</code> após configurar o <code>tsconfig</code>. 
 
 
-        - No diretório <code>src</code> devem ficar os arquivos de código <code>.ts</code>.
-        - No diretório <code>dist</code>, o compilador <code>tsc</code> criará automaticamente os arquivos <code>.js</code> após configurar o <code>tsconfig</code>. 
-
-    
-    <br />
+<br />
 
 <hr>
 
@@ -170,7 +159,7 @@
 
 
 ## <strong>3 - AVANÇANDO NO SETUP DO AMBIENTE</strong> 
-- ### <strong>3.1 - tsconfig.json</strong>
+- ### <strong>3.1 - O arquivo tsconfig.json</strong>
     Rodando o comando:
     
     ```sh
