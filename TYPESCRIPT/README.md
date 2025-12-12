@@ -18,6 +18,11 @@
     - #### [3.1 - O arquivo tsconfig.json](#31---o-arquivo-tsconfigjson-1)
     - #### [3.2 - Como usar o ts-node](#32---como-usar-o-ts-node-1)
 
+- ## [4 - MODULARIZANDO O CÓDIGO E ESTRUTURA DE PROJETO](#4---modularizando-o-código-e-estrutura-de-projeto-1)
+    - #### [4.1 - Função Simples e Exportação Inicial](#41---função-simples-e-exportação-inicial-1)
+    - #### [4.2 - Organizando Dados em um Módulo Dedicado](#42---organizando-dados-em-um-módulo-dedicado-1)
+    - #### [4.3 - Consumindo Módulos: Importação e Iteração (loop.ts)](#43---consumindo-módulos-importação-e-iteração-loopts-1)
+
     
 <br /> 
 <hr>
@@ -218,9 +223,8 @@
     Caso esteja usando o compilador <code>tsc</code>, é necessário descomentar as linhas:
 
     ```json
-
-        // "rootDir": "./src",
-        // "outDir": "./dist",
+        "rootDir": "./src",
+        "outDir": "./dist",
     ```
 
     É importante ter em mente a necessidade de setarmos os valores <code>rootDir</code> para o diretório onde estão os arquivos <code>.ts</code> e <code>outDir</code> para o diretório onde os arquivos <code>.js</code> serão gerados.
@@ -246,12 +250,13 @@
         <tbody>
             <tr>
                 <td><strong><code>false</code></strong> (Padrão)</td>
-                <td>Permite que o TypeScript realize Transformações e Interop de módulos automaticamente.</td>
+                <td>O TypeScript aplica transformações e interop de módulos automaticamente.</td>
                 <td>
                     <ul>
-                        <li>Permite: Usar sintaxe ESM (`import`/`export`) e compilar para CommonJS (`require`/`exports.x = ...`).</li>
-                        <li>Garante: Que os `imports` funcionem, mesmo com dependências que usam um sistema de módulos diferente (ex: importando CJS em um projeto ESM).</li>
-                        <li>Risco: Pode introduzir problemas sutis de interoperabilidade de *default imports*.</li>
+                        <li>Permite usar sintaxe ESM e compilar para CommonJS.</li>
+                        <li>Tenta compatibilizar imports entre ESM ↔️ CJS automaticamente.</li>
+                        <li>Pode gerar interop implícito (ex.: __importDefault).</li>
+                        <li>Pode causar bugs sutis com default imports de libs CJS.</li>
                     </ul>
                 </td>
             </tr>
@@ -293,18 +298,122 @@
 
 <hr>
 
-<!-- ## <strong>4 - AVANÇANDO NOS SCRIPTS</strong> 
-- ### <strong>3.1 - Sistemas de módulos</strong>
+## <strong>4 - MODULARIZANDO O CÓDIGO E ESTRUTURA DE PROJETO</strong> 
+<!-- - ### <strong>3.1 - Sistemas de módulos</strong> -->
 
-    Podemos escrever uma função para saudar uma pessoa, que recebe um nome como parâmetro e retorna uma string. Por isso, o retorno não será mais <code>void</code>, e sim, <code>string</code>.
+- ### <strong>4.1 - Função Simples e Exportação Inicial</strong>
+
+    Podemos escrever uma função para saudar uma pessoa, que recebe um nome (string) como parâmetro e retorna uma string do tipo <code>'- Hi, pessoa!'</code>. Por isso, o retorno não será mais <code>void</code>, e sim, <code>string</code>.
 
     ```ts
         // src/greet.ts
 
-        function greet(name: string): string {
-            return 'Hi, ' + name + '!';
-        };
+        export function greet(name: string): string {
+            return '- Hi, ' + name + '!';
+        }
 
         console.log(greet('Barbie'));
         console.log(greet('Ken'));
-    ``` -->
+
+    ```
+
+    Rodando o comando:
+
+    ```sh
+        npx ts-node src/greet.ts
+    ```
+
+    O retorno no console será:
+        
+    ```sh
+        - Hi, Barbie!
+        - Hi, Ken!
+    ```
+
+    Observe que não foram criados arquivos <code>.js</code> em nenhum local.<br>
+    Com o <code>ts-node</code> usamos apenas uma linha de código para rodar o script.
+
+- ### <strong>4.2 - Organizando Dados em um Módulo Dedicado</strong>
+
+
+    Agora, vamos dar um passo à frente elevando um pouco mais a complexidade do código.
+
+    Criamos o diretório <code>data</code> dentro de <code>src</code>
+
+    ```sh
+        mkdir src/data
+    ```
+
+    Dentro do novo diretório, criamos um arquivo para armazenar os dados.
+
+    ```sh
+        cd src/data && touch data.ts
+    ```
+
+    ```ts
+        // src/data/data.ts
+
+        export default [
+            'Ada Lovelace',
+            'Alan Kay',
+            'Ken Thompson',
+            'Dennis Ritchie',
+        ];
+    ```
+
+- ### <strong>4.3 - Consumindo Módulos: Importação e Iteração (loop.ts)</strong>
+
+
+    Vamos criar uma função para efetuar um loop.
+        
+    ```sh
+        cd .. && touch loop.ts
+    ```
+
+    Neste loop, vamos saudar cada uma das personalidades no array chamando a função <code>greet()</code> no módulo <code>src/greet</code>.
+
+    ```ts
+        // src/loop.ts
+
+        import people from './data/data';
+        import { greet } from './greet';
+
+        const loop = (people: Array<string>): void => {
+            people.forEach((p) => console.log(greet(p)));
+        }
+
+        loop(people);    
+    ```
+
+    Não esqueça de eliminar os <code>console.log()</code> do arquivo <code>greet.ts</code>.
+    O arquivo deve conter somente a função com a exportação:
+
+    ```ts
+    // src/greet.ts
+
+    export function greet(name: string): string {
+        return '- Hi, ' + name + '!';
+    }
+
+    // console.log(greet('Barbie'));
+    // console.log(greet('Ken'));
+
+    ```
+
+    Rodando o comando:
+
+    ```sh
+        npx ts-node src/loop.ts
+    ```
+
+
+    O retorno no console será:
+
+    ```sh
+    - Hi, Ada Lovelace!
+    - Hi, Alan Kay!
+    - Hi, Ken Thompson!
+    - Hi, Dennis Ritchie!
+    ```
+
+<hr>
