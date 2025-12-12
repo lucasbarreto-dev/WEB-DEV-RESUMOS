@@ -121,7 +121,7 @@
 - ### <strong>2.2 - Crie uma função para imprimir 'Hello, world!'</strong>
     
     ```ts
-        // Hello.js
+        // Hello.ts
 
         function hello(): void {
             console.log('Hello, world!');
@@ -215,7 +215,7 @@
     }
     ```
 
-    Caso esteja usando o compilador <code>tsc</code>, é necessário descomentarmos as linhas:
+    Caso esteja usando o compilador <code>tsc</code>, é necessário descomentar as linhas:
 
     ```json
 
@@ -223,9 +223,51 @@
         // "outDir": "./dist",
     ```
 
-    E setarmos os valores <code>rootDir</code> para o diretório onde estão os arquivos <code>.ts</code> e <code>outDir</code> para o diretório onde os arquivos <code>.js</code> serão gerados.
+    É importante ter em mente a necessidade de setarmos os valores <code>rootDir</code> para o diretório onde estão os arquivos <code>.ts</code> e <code>outDir</code> para o diretório onde os arquivos <code>.js</code> serão gerados.
 
     Caso queira usar o <code>ts-node</code>, descomente somente a linha referente ao "rootDir". O <code>ts-node</code> ignora completamente a configuração outDir porque, por design, ele não escreve nenhum arquivo no sistema de arquivos.
+
+    Também é importante lembrar de executar a configuração abaixo:
+
+    ```json
+        "verbatimModuleSyntax": false
+    ```
+
+    Ao desligar <code>verbatimModuleSyntax</code> permitimos que o TypeScript transforme a sintaxe <code>export</code> em código <strong>CommonJS</strong> compatível (por exemplo exports.x = ...), em vez de exigir que o arquivo já seja tratado como <strong>ESM</strong>. Se estiver como <code>true</code> o TS exige coerência verbatim entre a sintaxe do arquivo (ESM) e o formato do módulo (CommonJS); ao desativar, ele faz a interop/transformação automaticamente.
+
+    <table>
+        <thead>
+            <tr>
+                <th>Opção</th>
+                <th>Comportamento Principal (Transformação/Interop)</th>
+                <th>Exigência / Implicações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong><code>false</code></strong> (Padrão)</td>
+                <td>Permite que o TypeScript realize Transformações e Interop de módulos automaticamente.</td>
+                <td>
+                    <ul>
+                        <li>Permite: Usar sintaxe ESM (`import`/`export`) e compilar para CommonJS (`require`/`exports.x = ...`).</li>
+                        <li>Garante: Que os `imports` funcionem, mesmo com dependências que usam um sistema de módulos diferente (ex: importando CJS em um projeto ESM).</li>
+                        <li>Risco: Pode introduzir problemas sutis de interoperabilidade de *default imports*.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong><code>true</code></strong></td>
+                <td>Desliga o Interop e as transformações. Exige coerência Verbatim (exata).</td>
+                <td>
+                    <ul>
+                        <li>Exige: Que a sintaxe no código-fonte seja verbatim (exata) para o formato do módulo final.</li>
+                        <li>Prevenção: Evita a "magia" do TS e previne bugs de *default imports* comuns no ecossistema Node.js.</li>
+                        <li>Necessidade: Exige o uso da sintaxe correta (ex: `import * as X from 'Y'` ou `import { X } from 'Y'`) para compatibilidade.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 - ### <strong>3.2 - Como usar o <code>ts-node</code></strong>
     ```sh
@@ -250,3 +292,19 @@
 
 
 <hr>
+
+<!-- ## <strong>4 - AVANÇANDO NOS SCRIPTS</strong> 
+- ### <strong>3.1 - Sistemas de módulos</strong>
+
+    Podemos escrever uma função para saudar uma pessoa, que recebe um nome como parâmetro e retorna uma string. Por isso, o retorno não será mais <code>void</code>, e sim, <code>string</code>.
+
+    ```ts
+        // src/greet.ts
+
+        function greet(name: string): string {
+            return 'Hi, ' + name + '!';
+        };
+
+        console.log(greet('Barbie'));
+        console.log(greet('Ken'));
+    ``` -->
