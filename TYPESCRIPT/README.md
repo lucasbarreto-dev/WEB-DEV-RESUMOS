@@ -114,7 +114,7 @@
 
 <br />
 
-<hr>
+<!-- <hr> -->
 
 ## <strong>2 - Hello, world!</strong> 
 - ### <strong>2.1 - Crie o script dentro da pasta <code>src</code></strong>
@@ -159,140 +159,73 @@
     <br /> 
 
 
-## <strong>3 - AVANÇANDO NO SETUP DO AMBIENTE</strong> 
-- ### <strong>3.1 - O arquivo tsconfig.json</strong>
-    Rodando o comando:
+## <strong>3 - CONFIGURAÇÃO DO COMPILADOR E TS-NODE</strong> 
+
+- ### <strong>3.1 - Inicialize e configure o <code>tsconfig.json</code></strong>
+    Gere o arquivo de configuração padrão do TypeScript:
     
     ```sh
         npx tsc --init
     ```
 
-    Cria-se o arquivo:
+    Abra o arquivo <code>tsconfig.json</code> e realize as seguintes alterações conforme sua necessidade:
 
-    ```json
-    {
-    // Visit https://aka.ms/tsconfig to read more about this file
-        "compilerOptions": {
-            // File Layout
-            // "rootDir": "./src",
-            // "outDir": "./dist",
+    - **Para compilação via <code>tsc</code> (Geração de arquivos na <code>dist</code>):**
+        Descomente e configure estas linhas para organizar a saída:
+        ```json
+            "rootDir": "./src",
+            "outDir": "./dist",
+        ```
 
-            // Environment Settings
-            // See also https://aka.ms/tsconfig/module
-            "module": "nodenext",
-            "target": "esnext",
-            "types": [],
-            // For nodejs:
-            // "lib": ["esnext"],
-            // "types": ["node"],
-            // and npm install -D @types/node
+    - **Compatibilidade de Módulos (Interop):**
+        Procure pela chave abaixo e altere para <code>false</code> para facilitar a integração entre ESM e CommonJS:
+        ```json
+            "verbatimModuleSyntax": false
+        ```
 
-            // Other Outputs
-            "sourceMap": true,
-            "declaration": true,
-            "declarationMap": true,
-
-            // Stricter Typechecking Options
-            "noUncheckedIndexedAccess": true,
-            "exactOptionalPropertyTypes": true,
-
-            // Style Options
-            // "noImplicitReturns": true,
-            // "noImplicitOverride": true,
-            // "noUnusedLocals": true,
-            // "noUnusedParameters": true,
-            // "noFallthroughCasesInSwitch": true,
-            // "noPropertyAccessFromIndexSignature": true,
-
-            // Recommended Options
-            "strict": true,
-            "jsx": "react-jsx",
-            "verbatimModuleSyntax": true,
-            "isolatedModules": true,
-            "noUncheckedSideEffectImports": true,
-            "moduleDetection": "force",
-            "skipLibCheck": true,
-        }
-    }
-    ```
-
-    Caso esteja usando o compilador <code>tsc</code>, é necessário descomentar as linhas:
-
-    ```json
-        "rootDir": "./src",
-        "outDir": "./dist",
-    ```
-
-    É importante ter em mente a necessidade de setarmos os valores <code>rootDir</code> para o diretório onde estão os arquivos <code>.ts</code> e <code>outDir</code> para o diretório onde os arquivos <code>.js</code> serão gerados.
-
-    Caso queira usar o <code>ts-node</code>, descomente somente a linha referente ao "rootDir". O <code>ts-node</code> ignora completamente a configuração outDir porque, por design, ele não escreve nenhum arquivo no sistema de arquivos.
-
-    Também é importante lembrar de executar a configuração abaixo:
-
-    ```json
-        "verbatimModuleSyntax": false
-    ```
-
-    Ao desligar <code>verbatimModuleSyntax</code> permitimos que o TypeScript transforme a sintaxe <code>export</code> em código <strong>CommonJS</strong> compatível (por exemplo exports.x = ...), em vez de exigir que o arquivo já seja tratado como <strong>ESM</strong>. Se estiver como <code>true</code> o TS exige coerência verbatim entre a sintaxe do arquivo (ESM) e o formato do módulo (CommonJS); ao desativar, ele faz a interop/transformação automaticamente.
-
-    <table>
+    <details>
+    <summary>📌 <strong>Entenda a opção <code>verbatimModuleSyntax</code> (Clique para expandir)</strong></summary>
+    <br />
+    <table border="1" style="border-collapse: collapse; width: 100%;">
         <thead>
-            <tr>
-                <th>Opção</th>
-                <th>Comportamento Principal (Transformação/Interop)</th>
-                <th>Exigência / Implicações</th>
+            <tr style="background-color: #f2f2f2;">
+                <th style="padding: 8px;">Opção</th>
+                <th style="padding: 8px;">Comportamento Principal</th>
+                <th style="padding: 8px;">Implicações</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td><strong><code>false</code></strong> (Padrão)</td>
-                <td>O TypeScript aplica transformações e interop de módulos automaticamente.</td>
-                <td>
-                    <ul>
-                        <li>Permite usar sintaxe ESM e compilar para CommonJS.</li>
-                        <li>Tenta compatibilizar imports entre ESM ↔️ CJS automaticamente.</li>
-                        <li>Pode gerar interop implícito (ex.: __importDefault).</li>
-                        <li>Pode causar bugs sutis com default imports de libs CJS.</li>
-                    </ul>
-                </td>
+                <td style="padding: 8px;"><strong><code>false</code></strong> (Sugerido)</td>
+                <td>O TS aplica transformações e interop automaticamente.</td>
+                <td>Permite usar sintaxe ESM e compilar para CommonJS sem erros de sistema de módulos.</td>
             </tr>
             <tr>
-                <td><strong><code>true</code></strong></td>
-                <td>Desliga o Interop e as transformações. Exige coerência Verbatim (exata).</td>
-                <td>
-                    <ul>
-                        <li>Exige: Que a sintaxe no código-fonte seja verbatim (exata) para o formato do módulo final.</li>
-                        <li>Prevenção: Evita a "magia" do TS e previne bugs de *default imports* comuns no ecossistema Node.js.</li>
-                        <li>Necessidade: Exige o uso da sintaxe correta (ex: `import * as X from 'Y'` ou `import { X } from 'Y'`) para compatibilidade.</li>
-                    </ul>
-                </td>
+                <td style="padding: 8px;"><strong><code>true</code></strong></td>
+                <td>Desliga o Interop. Exige coerência exata (verbatim).</td>
+                <td>Evita a "magia" do TS, mas exige que você saiba exatamente se o arquivo final é ESM ou CJS.</td>
             </tr>
         </tbody>
     </table>
+    </details>
 
-- ### <strong>3.2 - Como usar o <code>ts-node</code></strong>
+- ### <strong>3.2 - Execução rápida com <code>ts-node</code></strong>
+    
+    Instale a ferramenta para rodar scripts sem precisar gerar arquivos <code>.js</code> físicos:
     ```sh
         npm i -D ts-node
     ```   
 
-    Após instalá-lo localmente no projeto como dependência de desenvolvimento, podemos usá-lo para executar o programa em apenas uma etapa, com uma linha de código.
-    
-    O <code>ts-node</code> transpila o código TypeScript inteiramente na memória RAM e passa o JavaScript resultante diretamente para o motor do <code>Node.js</code> executar, descartando o JS temporário logo em seguida.
-
-    Ou seja, se rodarmos o comando:
-    ```sh
-        npx ts-node hello.ts
-    ```
-    <br />
-
-    O retorno no console será:
+    O <code>ts-node</code> transpila o código na memória RAM e o executa instantaneamente. Para testar o script que criamos anteriormente:
     
     ```sh
-        Hello, world!
+        npx ts-node src/hello.ts
     ```
 
+    - **Observação:** O <code>ts-node</code> ignora a configuração <code>outDir</code>, pois ele não escreve arquivos no disco.
 
-<hr>
+<br />
+<!-- <hr> -->
 
 ## <strong>4 - MODULARIZANDO O CÓDIGO E ESTRUTURA DE PROJETO</strong> 
 <!-- - ### <strong>3.1 - Sistemas de módulos</strong> -->
