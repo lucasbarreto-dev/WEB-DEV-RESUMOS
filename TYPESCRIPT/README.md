@@ -72,6 +72,7 @@
 <!-- - ### <strong>1.1 - Criando o ambiente de desenvolvimento</strong> -->
 
 - ### <strong>1.1 - Crie um diretório para o projeto
+    O primeiro passo é criar a pasta onde o código residirá e entrar nela pelo terminal:
     ```sh
         mkdir nomeDoProjeto && cd nomeDoProjeto
     ```
@@ -116,16 +117,16 @@
 <hr>
 
 ## <strong>2 - Hello, world!</strong> 
-- ### <strong>2.1 - Crie o script com extensão .ts</strong>
-
+- ### <strong>2.1 - Crie o script dentro da pasta <code>src</code></strong>
+    Sempre trabalharemos com os arquivos fonte dentro de <code>src</code>:
     ```sh
-        touch Hello.ts 
+        touch src/hello.ts 
     ```
 
-- ### <strong>2.2 - Crie uma função para imprimir 'Hello, world!'</strong>
+- ### <strong>2.2 - Escreva a função com tipagem <code>void</code></strong>
     
     ```ts
-        // Hello.ts
+        // src/hello.ts
 
         function hello(): void {
             console.log('Hello, world!');
@@ -133,33 +134,29 @@
 
         hello();
     ```
-    -  <p> A função apenas imprime no console sem retornar qualquer valor. <br />Por isso, é tipada com 'void'.</p>
-    <br />
+    A função apenas imprime no console sem retornar valor, por isso utilizamos o tipo <code>void</code>.
 
-- ### <strong>2.3 - Compilação</strong>
+- ### <strong>2.3 - Realize a Compilação (TS para JS)</strong>
 
     ```sh
-        npx tsc hello.ts
+        npx tsc src/hello.ts
     ```
+    O compilador <code>tsc</code> lerá o arquivo TypeScript e gerará uma versão compatível em JavaScript (<code>src/hello.js</code>).
 
-    - Ao rodar esse comando, o compilador gera uma versão do código em JS em um novo arquivo e é ele que deverá ser executado pelo Node.js. 
-
-<br />
-
-- ### <strong>2.4 - Executando o arquivo em JS</strong>
+- ### <strong>2.4 - Execute o arquivo gerado com Node.js</strong>
+    Lembre-se: o Node executa o arquivo <strong>.js</strong> resultante:
     ```sh
-        node hello.js
+        node src/hello.js
     ```
-    <br />
 
     O retorno no console será:
     
     ```sh
         Hello, world!
     ```
-
     Ou seja, escrevemos o código em <code>typescript</code> e o comando <code>npx tsc nomeDoArquivo.ts</code> gera um arquivo <code>.js</code> para este ser executado. 
-<br /> 
+
+    <br /> 
 
 
 ## <strong>3 - AVANÇANDO NO SETUP DO AMBIENTE</strong> 
