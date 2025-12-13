@@ -72,45 +72,44 @@
 <!-- - ### <strong>1.1 - Criando o ambiente de desenvolvimento</strong> -->
 
 - ### <strong>1.1 - Crie um diretório para o projeto
-```sh
-    mkdir nomeDoProjeto && cd nomeDoProjeto
-```
+    ```sh
+        mkdir nomeDoProjeto && cd nomeDoProjeto
+    ```
 
 - ### <strong>1.2 - Iniciando o gerenciador de módulos do Node.js</strong>
+    Iniciamos o projeto Node.js para criar o arquivo <code>package.json</code>, que gerenciará nossas dependências:
 
-```sh
-    npm init -y
-```
+    ```sh
+        npm init -y
+    ```
 
 - ### <strong>1.3 - Instale o Typescript como dependência de desenvolvimento</strong>
-    - É importante assegurar a compatibilidade entre as versões
-        - do <strong>Typescript</strong> 
-        - do <strong>Node</strong> 
-        - da biblioteca <strong>@types/node</strong> 
+    - Para garantir a segurança do tipo e a execução correta, instalamos o TypeScript e as definições de tipos para o ambiente Node.js:
 
-```sh
+        - Atenção: Mantenha a compatibilidade entre as versões do <strong>TypeScript</strong>, do <strong>Node</strong> e da biblioteca <strong>@types/node</strong>.
+    ```sh
 
-    # Instalar a versão mais recente do TypeScript (devDependency) 
-    npm i -D typescript
-    
-    # Instalar @types/node alinhado (por exemplo latest ou versão compatível com sua versão do Node) 
-    npm i -D @types/node 
-    
-    # Instala a versão LTS mais recente do Node.js e define essa versão como ativa no terminal
-    nvm install --lts
-```
+        # Instala o TypeScript como dependência de desenvolvimento
+        npm i -D typescript
+        
+        # Instala as definições de tipo para o Node.js
+        npm i -D @types/node 
+        
+        # Garante o uso da versão LTS (Long Term Support) do Node.js
+        nvm install --lts
+    ```
 
 - ### <strong>1.4 - Crie os diretórios <code>src</code> e <code>dist</code></strong>
 
-    - Na raíz do projeto, rode o comando:
+    Organizaremos o projeto separando o código original do código gerado para produção. Por isso, na raíz do projeto, rode o comando:
+
     ```sh
     mkdir src dist
     ```
 
+    <code>src</code>: Diretório dos arquivos fonte (<code>.ts</code>).
 
-    - No diretório <code>src</code> devem ficar os arquivos de código <code>.ts</code>.
-    - No diretório <code>dist</code>, o compilador <code>tsc</code> criará automaticamente os arquivos <code>.js</code> após configurar o <code>tsconfig</code>. 
-
+    <code>dist</code>: Onde o compilador (<code>tsc</code>) salvará os arquivos compilados (<code>.js</code>).
 
 <br />
 
