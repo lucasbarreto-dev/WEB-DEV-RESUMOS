@@ -7,7 +7,7 @@
     - #### [1.3 - Instale o Typescript como dependência de desenvolvimento](#13---instale-o-typescript-como-dependência-de-desenvolvimento)
     - #### [1.4 - Crie os diretórios src e dist](#14---crie-os-diretórios-src-e-dist)
 
- - ## [2 - Hello, world!](#2---hello-world)
+ - ## [2 - HELLO, WORLD!](#2---hello-world)
     - #### [2.1 - Crie o script dentro da pasta src](#21---crie-o-script-dentro-da-pasta-src)
     - #### [2.2 - Escreva a função com tipagem void](#22---escreva-a-função-with-tipagem-void)
     - #### [2.3 - Realize a Compilação (TS para JS)](#23---realize-a-compilação-ts-para-js) 
@@ -71,7 +71,7 @@
 
 <br />
 
-## <strong>2 - Hello, world!</strong> 
+## <strong>2 - HELLO, WORLD!</strong> 
 - ### <strong>2.1 - Crie o script dentro da pasta src</strong>
     Sempre trabalharemos com os arquivos fonte dentro de <code>src</code>:
     ```sh
