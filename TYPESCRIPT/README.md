@@ -30,7 +30,7 @@
     - #### [5.5 - Inicializando o servidor HTTP (server.ts)](#55---inicializando-o-servidor-http-serverts)
     - #### [5.6 - Executando o servidor com ts-node](#56---executando-o-servidor-com-ts-node)
     - #### [5.7 - Observações Importantes](#57---observações-importantes)
-    
+
 - ## [6 - API PROFISSIONAL: ARQUITETURA E PRODUÇÃO](#6---api-profissional-arquitetura-e-produção)
     - #### [6.1 - Separando responsabilidades: Controllers e Services](#61---separando-responsabilidades-controllers-e-services)
     - #### [6.2 - Criando um Service (Lógica de Negócio)](#62---criando-um-service-lógica-de-negócio)
@@ -306,6 +306,8 @@
     - Hi, Dennis Ritchie!
     ```
 
+<br />
+
 ## <strong>5 - NODE.JS COM HTTP / EXPRESS + TYPESCRIPT</strong>
 
 Nesta seção, vamos evoluir do uso de scripts simples para a criação de uma API HTTP básica, utilizando <strong>Express.js</strong> com TypeScript, seguindo boas práticas de organização de código.
@@ -398,6 +400,8 @@ Nesta seção, vamos evoluir do uso de scripts simples para a criação de uma A
     * **Produção:** Sempre utilize o <code>tsc</code> para gerar arquivos JS na pasta <code>dist</code> antes do deploy.
     * **Runtime:** O Node.js executará o código transpilado; o TypeScript é uma ferramenta de auxílio em tempo de desenvolvimento.
     * **Escalabilidade:** A separação <code>app/server/routes</code> é o primeiro passo para padrões mais avançados como Clean Architecture ou Hexagonal.
+
+<br />
 
 ## <strong>6 - API PROFISSIONAL: ARQUITETURA E PRODUÇÃO</strong>
 
