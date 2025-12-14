@@ -507,5 +507,3 @@ Nesta seção, evoluiremos nossa API para um formato profissional, introduzindo 
 
 <br />
 <hr>
-
-<hr>
