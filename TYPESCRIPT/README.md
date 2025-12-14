@@ -9,7 +9,7 @@
 
  - ## [2 - HELLO, WORLD!](#2---hello-world)
     - #### [2.1 - Crie o script dentro da pasta src](#21---crie-o-script-dentro-da-pasta-src)
-    - #### [2.2 - Escreva a função com tipagem void](#22---escreva-a-função-with-tipagem-void)
+    - #### [2.2 - Escreva a função com tipagem void](#22---escreva-a-função-com-tipagem-void)
     - #### [2.3 - Realize a Compilação (TS para JS)](#23---realize-a-compilação-ts-para-js) 
     - #### [2.4 - Execute o arquivo gerado com Node.js](#24---execute-o-arquivo-gerado-com-nodejs)
 
@@ -24,6 +24,8 @@
 
 <br /> 
 <hr>
+<br /> 
+
 
 ## <strong>1 - INICIANDO UM PROJETO</strong>
 
@@ -41,12 +43,11 @@
     ```
 
 - ### <strong>1.3 - Instale o Typescript como dependência de desenvolvimento</strong>
-    - Para garantir a segurança do tipo e a execução correta, instalamos o TypeScript e as definições de tipos para o ambiente Node.js:
+    - Para habilitar tipagem estática e compatibilidade com o ambiente Node.js:
 
         - Atenção: Mantenha a compatibilidade entre as versões do <strong>TypeScript</strong>, do <strong>Node</strong> e da biblioteca <strong>@types/node</strong>.
 
     ```sh
-
     # Instala o TypeScript como dependência de desenvolvimento
     npm i -D typescript
     
@@ -151,16 +152,16 @@
         <tbody>
             <tr>
                 <td style="padding: 8px;"><strong><code>false</code></strong> (Sugerido)</td>
-                <td>O TS aplica transformações e interop automaticamente.</td>
-                <td>Permite usar sintaxe ESM e compilar para CommonJS sem erros de sistema de módulos.</td>
+                <td>O TypeScript pode aplicar interop automaticamente dependendo do <code>compilerOptions.module</code>.</td>
+                <td>Facilita a convivência em projetos CommonJS ou híbridos, automatizando a tradução entre ESM e CJS.</td>
             </tr>
             <tr>
                 <td style="padding: 8px;"><strong><code>true</code></strong></td>
-                <td>Desliga o Interop. Exige coerência exata (verbatim).</td>
-                <td>Evita a "magia" do TS, mas exige que você saiba exatamente se o arquivo final é ESM ou CJS.</td>
+                <td>Desliga o Interop e exige coerência exata (verbatim).</td>
+                <td>Ideal para projetos puramente ESM (<code>"type": "module"</code>), garantindo que o código escrito seja exatamente o executado.</td>
             </tr>
         </tbody>
-    </table>
+    </table>    
     </details>
 
 - ### <strong>3.2 - Execução rápida com ts-node</strong>
@@ -253,12 +254,14 @@
     import people from './data/data';
     import { greet } from './greet';
 
-    const loop = (people: Array<string>): void => {
+    // Array<string> é equivalente a string[]
+    function loop(people: Array<string>): void {
         people.forEach((p) => console.log(greet(p)));
     }
 
     loop(people);    
     ```
+
 
     Não esqueça de eliminar os <code>console.log()</code> do arquivo <code>greet.ts</code>.
     O arquivo deve conter somente a função com a exportação:
