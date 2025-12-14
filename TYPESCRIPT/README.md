@@ -30,6 +30,15 @@
     - #### [5.5 - Inicializando o servidor HTTP (server.ts)](#55---inicializando-o-servidor-http-serverts)
     - #### [5.6 - Executando o servidor com ts-node](#56---executando-o-servidor-com-ts-node)
     - #### [5.7 - Observações Importantes](#57---observações-importantes)
+    
+- ## [6 - API PROFISSIONAL: ARQUITETURA E PRODUÇÃO](#6---api-profissional-arquitetura-e-produção)
+    - #### [6.1 - Separando responsabilidades: Controllers e Services](#61---separando-responsabilidades-controllers-e-services)
+    - #### [6.2 - Criando um Service (Lógica de Negócio)](#62---criando-um-service-lógica-de-negócio)
+    - #### [6.3 - Criando um Controller tipado](#63---criando-um-controller-tipado)
+    - #### [6.4 - Tipagem de Request Body](#64---tipagem-of-request-body)
+    - #### [6.5 - Middleware de Erro Global](#65---middleware-de-erro-global)
+    - #### [6.6 - Variáveis de Ambiente (.env)](#66---variáveis-de-ambiente-env)
+    - #### [6.7 - Scripts de Build e Produção](#67---scripts-de-build-e-produção)
 <br /> 
 <hr>
 <br /> 
@@ -389,5 +398,110 @@ Nesta seção, vamos evoluir do uso de scripts simples para a criação de uma A
     * **Produção:** Sempre utilize o <code>tsc</code> para gerar arquivos JS na pasta <code>dist</code> antes do deploy.
     * **Runtime:** O Node.js executará o código transpilado; o TypeScript é uma ferramenta de auxílio em tempo de desenvolvimento.
     * **Escalabilidade:** A separação <code>app/server/routes</code> é o primeiro passo para padrões mais avançados como Clean Architecture ou Hexagonal.
+
+## <strong>6 - API PROFISSIONAL: ARQUITETURA E PRODUÇÃO</strong>
+
+Nesta seção, evoluiremos nossa API para um formato profissional, introduzindo a separação de responsabilidades (Pattern Service/Controller), tratamento centralizado de erros e fluxo de build.
+
+- ### <strong>6.1 - Separando responsabilidades: Controllers e Services</strong>
+    Para manter o código escalável, dividimos as tarefas:
+    * **Controllers**: Lidam com o protocolo HTTP (recebem <code>req</code> e enviam <code>res</code>).
+    * **Services**: Contêm a lógica de negócio (puramente TypeScript, sem conhecer o Express).
+
+    Estrutura de diretórios:
+    ```sh
+    mkdir src/controllers src/services src/middlewares
+    touch src/controllers/health.controller.ts src/services/health.service.ts src/middlewares/error.middleware.ts
+    ```
+
+- ### <strong>6.2 - Criando um Service (Lógica de Negócio)</strong>
+    O Service executa as regras e retorna dados puros. Isso facilita testes unitários:
+
+    ```ts
+    // src/services/health.service.ts
+    export function checkHealth() {
+        return {
+            status: 'ok',
+            timestamp: new Date().toISOString(),
+        };
+    }
+    ```
+
+- ### <strong>6.3 - Criando um Controller tipado</strong>
+    O Controller recebe a requisição, chama o Service e define o status HTTP:
+
+    ```ts
+    // src/controllers/health.controller.ts
+    import { Request, Response } from 'express';
+    import { checkHealth } from '../services/health.service';
+
+    export function healthController(req: Request, res: Response) {
+        const result = checkHealth();
+        return res.status(200).json(result);
+    }
+    ```
+
+- ### <strong>6.4 - Tipagem de Request Body</strong>
+    Em endpoints de escrita (POST/PUT), utilizamos Generics para tipar o corpo da requisição, garantindo autocomplete e segurança:
+
+    ```ts
+    // Exemplo: Request<Params, ResBody, ReqBody, Query>
+    interface CreateUserBody {
+        name: string;
+        email: string;
+    }
+
+    export function createUserController(
+        req: Request<{}, {}, CreateUserBody>, 
+        res: Response
+    ) {
+        const { name, email } = req.body; // Totalmente tipado!
+        return res.status(201).json({ name, email });
+    }
+    ```
+
+- ### <strong>6.5 - Middleware de Erro Global</strong>
+    Um único local para capturar falhas em toda a aplicação. **Importante:** deve ser o último <code>app.use()</code> no arquivo <code>app.ts</code>.
+
+    ```ts
+    // src/middlewares/error.middleware.ts
+    import { Request, Response, NextFunction } from 'express';
+
+    export function errorMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
+        console.error(err.stack);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+    ```
+
+- ### <strong>6.6 - Variáveis de Ambiente (.env)</strong>
+    Instale o <code>dotenv</code> para gerenciar configurações sensíveis:
+    ```sh
+    npm i dotenv
+    ```
+    Carregue-o no topo do seu <code>src/server.ts</code>:
+    ```ts
+    import 'dotenv/config';
+    import app from './app';
+
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => console.log(`🚀 Server on port ${PORT}`));
+    ```
+
+- ### <strong>6.7 - Scripts de Build e Produção</strong>
+    Configure seu <code>package.json</code> para automatizar o fluxo:
+
+    ```json
+    "scripts": {
+      "dev": "ts-node src/server.ts",
+      "build": "tsc",
+      "start": "node dist/server.js"
+    }
+    ```
+    * **Desenvolvimento**: <code>npm run dev</code>
+    * **Compilação**: <code>npm run build</code> (Gera a pasta <code>dist</code>)
+    * **Produção**: <code>npm start</code>
+
+<br />
+<hr>
 
 <hr>
