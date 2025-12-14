@@ -274,7 +274,7 @@
     }
     ```
 
-    Rodando o comando:
+    Rodando o comando na raíz do projeto:
 
     ```sh
     npx ts-node src/loop.ts
@@ -288,5 +288,98 @@
     - Hi, Ken Thompson!
     - Hi, Dennis Ritchie!
     ```
+
+## <strong>5 - NODE.JS COM HTTP / EXPRESS + TYPESCRIPT</strong>
+
+Nesta seção, vamos evoluir do uso de scripts simples para a criação de uma API HTTP básica, utilizando <strong>Express.js</strong> com TypeScript, seguindo boas práticas de organização de código.
+
+- ### <strong>5.1 - Instalando dependências do Express</strong>
+    Instale o framework e suas respectivas definições de tipos para o ambiente de desenvolvimento:
+
+    ```sh
+    npm i express
+    npm i -D @types/express
+    ```
+
+- ### <strong>5.2 - Estrutura inicial de pastas</strong>
+    Organizaremos o projeto para separar as responsabilidades de configuração, rotas e inicialização:
+
+    ```sh
+    src/
+     ├── app.ts        # Configuração da aplicação (middleware/rotas)
+     ├── server.ts     # Ponto de entrada (bootstrap do servidor)
+     └── routes.ts     # Definição dos endpoints
+    ```
+    Crie os arquivos necessários:
+    ```sh
+    touch src/app.ts src/server.ts src/routes.ts
+    ```
+
+
+
+- ### <strong>5.3 - Criando a aplicação Express (app.ts)</strong>
+    O arquivo <code>app.ts</code> configura a instância da aplicação:
+
+    ```ts
+    // src/app.ts
+    import express, { Application } from 'express';
+    import routes from './routes';
+
+    const app: Application = express();
+
+    app.use(express.json()); // Permite o parse de corpos em JSON
+    app.use(routes);
+
+    export default app;
+    ```
+
+- ### <strong>5.4 - Definindo rotas HTTP (routes.ts)</strong>
+    Utilizaremos o <code>Router</code> do Express para desacoplar as rotas da lógica principal:
+
+    ```ts
+    // src/routes.ts
+    import { Router, Request, Response } from 'express';
+
+    const router = Router();
+
+    router.get('/health', (req: Request, res: Response) => {
+        return res.status(200).json({ status: 'ok' });
+    });
+
+    export default router;
+    ```
+    Observe o uso das interfaces <code>Request</code> e <code>Response</code> para garantir a tipagem dos objetos do Express.
+
+- ### <strong>5.5 - Inicializando o servidor HTTP (server.ts)</strong>
+    Separar o <code>app</code> do <code>server</code> facilita a execução de testes automatizados posteriormente:
+
+    ```ts
+    // src/server.ts
+    import app from './app';
+
+    const PORT = 3000;
+
+    app.listen(PORT, () => {
+        console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+    ```
+
+- ### <strong>5.6 - Executando o servidor com ts-node</strong>
+    Rode o servidor em ambiente de desenvolvimento e teste o endpoint:
+
+    ```sh
+    npx ts-node src/server.ts
+    ```
+
+    Acesse via navegador ou terminal (curl):
+    ```sh
+    curl http://localhost:3000/health
+    # Resposta: { "status": "ok" }
+    ```
+
+- ### <strong>5.7 - Observações Importantes</strong>
+    * **Produção:** Sempre utilize o <code>tsc</code> para gerar arquivos JS na pasta <code>dist</code> antes do deploy.
+    * **Runtime:** O Node.js executará o código transpilado; o TypeScript é uma ferramenta de auxílio em tempo de desenvolvimento.
+    * **Escalabilidade:** A separação <code>app/server/routes</code> é o primeiro passo para padrões mais avançados como Clean Architecture ou Hexagonal.
 
 <hr>
