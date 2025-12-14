@@ -22,6 +22,14 @@
     - #### [4.2 - Organizando Dados em um Módulo Dedicado](#42---organizando-dados-em-um-módulo-dedicado)
     - #### [4.3 - Consumindo Módulos: Importação e Iteração (loop.ts)](#43---consumindo-módulos-importação-e-iteração-loopts)
 
+- ## [5 - NODE.JS COM HTTP / EXPRESS + TYPESCRIPT](#5---nodejs-com-http--express--typescript)
+    - #### [5.1 - Instalando dependências do Express](#51---instalando-dependências-do-express)
+    - #### [5.2 - Estrutura inicial de pastas](#52---estrutura-inicial-de-pastas)
+    - #### [5.3 - Criando a aplicação Express (app.ts)](#53---criando-a-aplicação-express-appts)
+    - #### [5.4 - Definindo rotas HTTP (routes.ts)](#54---definindo-rotas-http-routests)
+    - #### [5.5 - Inicializando o servidor HTTP (server.ts)](#55---inicializando-o-servidor-http-serverts)
+    - #### [5.6 - Executando o servidor com ts-node](#56---executando-o-servidor-com-ts-node)
+    - #### [5.7 - Observações Importantes](#57---observações-importantes)
 <br /> 
 <hr>
 <br /> 
