@@ -249,10 +249,16 @@
 
     export default [
         'Ada Lovelace',
-        'Alan Kay',
+        'Alan Turing',
+        'Grace Hopper',
+        'Linus Torvalds',
+        'Margaret Hamilton',
         'Ken Thompson',
         'Dennis Ritchie',
-    ];
+        'Barbara Liskov',
+        'Tim Berners-Lee',
+        'James Gosling',
+    ]    
     ```
 
 - ### <strong>4.3 - Consumindo Módulos: Importação e Iteração (loop.ts)</strong>
