@@ -1,3 +1,15 @@
+## 📌 Índice
+
+1. [Criar a pasta do projeto](#1---criar-a-pasta-do-projeto)
+2. [Criar o código PHP](#2---criar-o-código-php)
+3. [Criar o Dockerfile](#3---criar-o-dockerfile)
+4. [Construir a imagem](#4---construir-a-imagem)
+5. [Verificar a imagem](#5---verificar-a-imagem)
+6. [Desenvolvimento Interativo (Modo Live)](#6---desenvolvimento-interativo-modo-live)
+7. [Estrutura definitiva](#7---estrutura-definitiva-para-iniciar-o-projeto)
+
+---
+
 # 1 - Criar a pasta do projeto
 ```
 mkdir my_php_project
