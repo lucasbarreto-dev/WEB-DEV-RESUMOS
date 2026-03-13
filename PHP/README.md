@@ -131,7 +131,7 @@ CMD ["php", "index.php"]
 # 4 - Construir a imagem
 
 ```
-docker build -t my-php-app .
+docker build -t my_php_project .
 ```
 
    -  <p>Explicação:</p>
@@ -223,6 +223,6 @@ my_php_project/
 <p>Qualquer pessoa pode rodar:</p>
 
 ```
-docker build -t my-php-project .
+docker build -t my_php_project .
 docker run -it --rm my_php_project bash
 ```
