@@ -1,8 +1,12 @@
-## 📌 Índice
+# 📌 Índice
 
 1. [Criar a pasta do projeto](#1---criar-a-pasta-do-projeto)
 2. [Criar o código PHP](#2---criar-o-código-php)
 3. [Criar o Dockerfile](#3---criar-o-dockerfile)
+    - 3.1 [FROM](#31---from-php83-cli)
+    - 3.2 [WORKDIR](#32---workdir-app)
+    - 3.3 [COPY](#33---copy--app)
+    - 3.4 [CMD](#34---cmd-php-indexphp)
 4. [Construir a imagem](#4---construir-a-imagem)
 5. [Verificar a imagem](#5---verificar-a-imagem)
 6. [Desenvolvimento Interativo (Modo Live)](#6---desenvolvimento-interativo-modo-live)
