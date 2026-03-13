@@ -153,13 +153,38 @@ my-php-app   latest    8f3b2a4d
 
 <br />
 
-# 6 - Rodar o container
-<p>Agora execute:</p>
+# 6 - Desenvolvimento Interativo (Modo "Live")
+<p>Se quiser entrar no container para rodar comandos e ver alterações no código em tempo real, execute:</p>
 
-```
+<!-- ```
 docker run -it --rm my_php_project bash
-```
-<p>Por que o <code>--rm</code>? Ele remove o container automaticamente após a execução. Isso evita que seu computador fique cheio de containers parados "lixo".</p>
+``` -->
+
+````
+docker run -it --rm -v "$(pwd)":/app my_php_project bash
+````
+
+<p>O que este comando faz?
+
+<code>-it</code>: Abre um terminal interativo dentro do container.
+
+<code>-v "$(pwd)":/app</code>: Sincroniza sua pasta atual do computador com a pasta /app do container. Se você mudar o código no VS Code, ele muda lá dentro na hora!
+
+<code>bash</code>: Em vez de rodar o script e fechar, ele te dá acesso ao terminal do Linux.</p>
+
+<code>--rm</code>: Remove o container automaticamente após a execução. Isso evita que seu computador fique cheio de containers parados "lixo".</p>
+
+<p>Uma vez dentro do container, você verá o prompt:</p>
+
+````
+root@container_id:/app#
+````
+
+Agora execute o script manualmente:
+
+````
+php index.php
+````
 
 <p>Saída:</p>
 
