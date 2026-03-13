@@ -24,7 +24,6 @@ touch index.php
 // my_php_project/index.php
 
 <?php
-
 echo "Hello World from Docker!" . PHP_EOL;
 ```
 
@@ -109,6 +108,8 @@ CMD ["php", "index.php"]
     ```
     php index.php
     ```
+
+<p>Dica: Adicione um arquivo <code>.dockerignore</code> para evitar copiar arquivos desnecessários para dentro da imagem.</p>    
 <br />
 
 # 4 - Construir a imagem
@@ -119,13 +120,20 @@ docker build -t my-php-app .
 
    -  <p>Explicação:</p>
 
-        ```
+        <!-- ```
         | parte          | significado       |
         | -------------- | ----------------- |
         | `docker build` | constrói imagem   |
         | `-t`           | define nome       |
         | `my-php-app`   | nome da imagem    |
         | `.`            | contexto de build |
+        ``` -->
+        ```
+        | parte         | significado                                                           |
+        |---------------|-----------------------------------------------------------------------|
+        | docker build  | Comando para criar uma imagem a partir de um Dockerfile.              |
+        | -t my-php-app | Tag: Nomeia a imagem para que possamos referenciá-la depois.          |
+        | .             | Contexto: Indica que os arquivos e o Dockerfile estão na pasta atual. |
         ```
 
 <br />
@@ -151,6 +159,7 @@ my-php-app   latest    8f3b2a4d
 ```
 docker run --rm my-php-app
 ```
+<p>Por que o <code>--rm</code>? Ele remove o container automaticamente após a execução. Isso evita que seu computador fique cheio de containers parados "lixo".</p>
 
 <p>Saída:</p>
 
@@ -158,7 +167,7 @@ docker run --rm my-php-app
 Hello World from Docker!
 ```
 
-# 7 - Estrutura final do projeto
+# 7 - Estrutura definitiva para iniciar o projeto
 
 <p>Seu projeto agora é auto-contido:</p>
 
