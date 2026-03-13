@@ -157,7 +157,7 @@ my-php-app   latest    8f3b2a4d
 <p>Agora execute:</p>
 
 ```
-docker run --rm my-php-app
+docker run -it --rm my_php_project bash
 ```
 <p>Por que o <code>--rm</code>? Ele remove o container automaticamente após a execução. Isso evita que seu computador fique cheio de containers parados "lixo".</p>
 
@@ -166,6 +166,8 @@ docker run --rm my-php-app
 ```
 Hello World from Docker!
 ```
+
+<br />
 
 # 7 - Estrutura definitiva para iniciar o projeto
 
@@ -181,5 +183,5 @@ my_php_project/
 
 ```
 docker build -t my-php-app .
-docker run --rm my-php-app
+docker run -it --rm my_php_project bash
 ```
