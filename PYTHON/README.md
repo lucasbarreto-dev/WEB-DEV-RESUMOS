@@ -30,18 +30,22 @@ Antes de começar, certifique-se de ter instalado:
     - #### [2.2 - Executar o script localmente](#22---executar-o-script-localmente)
     - #### [2.3 - Rodar o script em modo interativo](#23---rodar-o-script-em-modo-interativo)
 
-- ## [3 - PYTHON COM DOCKER](#3---python-com-docker)
-    - #### [3.1 - Criar o Dockerfile](#31---criar-o-dockerfile)
-    - #### [3.2 - Entendendo o Dockerfile](#32---entendendo-o-dockerfile)
-    - #### [3.3 - Criar o `.dockerignore`](#33---criar-o-dockerignore)
+- ## [3 - MODULARIZANDO O CÓDIGO E ESTRUTURA DE PROJETO](#3---modularizando-o-código-e-estrutura-de-projeto)
+    - #### [3.1 - Função Simples e Exportação Inicial](#31---função-simples-e-exportação-inicial)
+    - #### [3.2 - Organizando Dados em um Módulo Dedicado](#32---organizando-dados-em-um-módulo-dedicado)
+    - #### [3.3 - Consumindo Módulos: Importação e Iteração (`loop.py`)](#33---consumindo-módulos-importação-e-iteração-looppy)
 
-- ## [4 - EXECUTANDO O PROJETO COM DOCKER](#4---executando-o-projeto-com-docker)
-    - #### [4.1 - Construir a imagem](#41---construir-a-imagem)
-    - #### [4.2 - Rodar o container](#42---rodar-o-container)
-    - #### [4.3 - Desenvolvimento interativo (modo live)](#43---desenvolvimento-interativo-modo-live)
+- ## [4 - PYTHON COM DOCKER](#4---python-com-docker)
+    - #### [4.1 - Criar o Dockerfile](#41---criar-o-dockerfile)
+    - #### [4.2 - Entendendo o Dockerfile](#42---entendendo-o-dockerfile)
+    - #### [4.3 - Criar o `.dockerignore`](#43---criar-o-dockerignore)
 
-- ## [5 - ESTRUTURA FINAL DO PROJETO](#5---estrutura-final-do-projeto)
+- ## [5 - EXECUTANDO O PROJETO COM DOCKER](#5---executando-o-projeto-com-docker)
+    - #### [5.1 - Construir a imagem](#51---construir-a-imagem)
+    - #### [5.2 - Rodar o container](#52---rodar-o-container)
+    - #### [5.3 - Desenvolvimento interativo (modo live)](#53---desenvolvimento-interativo-modo-live)
 
+- ## [6 - ESTRUTURA FINAL DO PROJETO](#6---estrutura-final-do-projeto)
 <br />
 <hr>
 <br />
@@ -181,6 +185,171 @@ Antes de começar, certifique-se de ter instalado:
 
     ```sh
     python3 -i hello.py
+    ```
+
+<br />§
+
+## <strong>3 - MODULARIZANDO O CÓDIGO E ESTRUTURA DE PROJETO</strong>
+
+- ### <strong>3.1 - Função Simples e Exportação Inicial</strong>
+
+    Agora vamos dar um passo além do script único.  
+    Em Python, também é uma boa prática separar responsabilidades em arquivos diferentes, transformando partes do código em módulos reutilizáveis.
+
+    Vamos criar um arquivo responsável apenas por saudar uma pessoa:
+
+    ```sh
+    touch greet.py
+    ```
+
+    Conteúdo:
+
+    ```py
+    # greet.py
+
+    def greet(name: str) -> str:
+        return f"- Hi, {name}!"
+    ```
+
+    Nesse caso:
+
+    - `name: str` indica que a função recebe uma string
+    - `-> str` indica que a função retorna uma string
+
+    Podemos testar rapidamente criando um uso simples temporário:
+
+    ```py
+    # greet.py
+
+    def greet(name: str) -> str:
+        return f"- Hi, {name}!"
+
+    print(greet("Barbie"))
+    print(greet("Ken"))
+    ```
+
+    Rodando o comando:
+
+    ```sh
+    python3 greet.py
+    ```
+
+    O retorno no console será:
+
+    ```sh
+    - Hi, Barbie!
+    - Hi, Ken!
+    ```
+
+- ### <strong>3.2 - Organizando Dados em um Módulo Dedicado</strong>
+
+    Agora vamos separar também os dados do programa em outro módulo.
+
+    Crie um diretório para armazenar esses dados:
+
+    ```sh
+    mkdir data
+    ```
+
+    Dentro dele, crie o arquivo:
+
+    ```sh
+    touch data/data.py
+    ```
+
+    Conteúdo:
+
+    ```py
+    # data/data.py
+
+    people = [
+        "Ada Lovelace",
+        "Alan Turing",
+        "Grace Hopper",
+        "Linus Torvalds",
+        "Margaret Hamilton",
+        "Ken Thompson",
+        "Dennis Ritchie",
+        "Barbara Liskov",
+        "Tim Berners-Lee",
+        "James Gosling",
+    ]
+    ```
+
+    Agora temos uma lista separada em um módulo próprio, o que facilita manutenção e reaproveitamento.
+
+- ### <strong>3.3 - Consumindo Módulos: Importação e Iteração (`loop.py`)</strong>
+
+    Agora vamos criar um arquivo principal para consumir os módulos criados anteriormente:
+
+    ```sh
+    touch loop.py
+    ```
+
+    Conteúdo:
+
+    ```py
+    # loop.py
+
+    from greet import greet
+    from data.data import people
+
+    def loop(people: list[str]) -> None:
+        for person in people:
+            print(greet(person))
+
+    loop(people)
+    ```
+
+    Explicação:
+
+    - `from greet import greet`: importa a função `greet()` do arquivo `greet.py`
+    - `from data.data import people`: importa a lista `people` do arquivo `data/data.py`
+    - `list[str]`: indica que a função recebe uma lista de strings
+    - `-> None`: indica que a função não retorna valor, apenas executa ações
+
+    > **Importante:**  
+    > Agora que `greet.py` virou um módulo reutilizável, remova os `print()` temporários dele.  
+    > Ele deve conter **somente a função**:
+
+    ```py
+    # greet.py
+
+    def greet(name: str) -> str:
+        return f"- Hi, {name}!"
+    ```
+
+    Rodando o comando na raiz do projeto:
+
+    ```sh
+    python3 loop.py
+    ```
+
+    O retorno no console será algo como:
+
+    ```sh
+    - Hi, Ada Lovelace!
+    - Hi, Alan Turing!
+    - Hi, Grace Hopper!
+    - Hi, Linus Torvalds!
+    - Hi, Margaret Hamilton!
+    - Hi, Ken Thompson!
+    - Hi, Dennis Ritchie!
+    - Hi, Barbara Liskov!
+    - Hi, Tim Berners-Lee!
+    - Hi, James Gosling!
+    ```
+
+    Estrutura do projeto até aqui:
+
+    ```sh
+    my_python_project/
+    ├── .venv/
+    ├── data/
+    │   └── data.py
+    ├── greet.py
+    ├── hello.py
+    └── loop.py
     ```
 
 <br />
