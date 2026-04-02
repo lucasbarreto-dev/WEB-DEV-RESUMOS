@@ -68,7 +68,7 @@ Antes de começar, certifique-se de ter instalado:
 
 - ### <strong>1.2 - Criar o ambiente virtual (`.venv`)</strong>
 
-    O ambiente virtual permite isolar as dependências do projeto, evitando conflitos com outros projetos Python instalados na máquina.
+    O ambiente virtual cria um espaço isolado para as dependências do projeto, evitando interferência com bibliotecas instaladas globalmente ou usadas em outros projetos.
 
     ```sh
     python3 -m venv .venv
@@ -80,6 +80,9 @@ Antes de começar, certifique-se de ter instalado:
     my_python_project/
     └── .venv/
     ```
+
+    **Nota:** O `venv` lembra o conceito de isolamento do Docker, mas em uma escala menor.  
+    Enquanto o ambiente virtual isola apenas o ecossistema Python do projeto, o Docker isola a aplicação inteira junto com seu runtime e ambiente de execução. <strong>Se você vai executar qualquer coisa relacionada ao projeto Python, o ideal é estar com o venv ativado.</strong>
 
 - ### <strong>1.3 - Ativar o ambiente virtual</strong>
 
