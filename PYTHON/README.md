@@ -294,14 +294,14 @@ Antes de começar, certifique-se de ter instalado:
     ```py
     # loop.py
 
-    from greet import greet
     from data.data import people
+    from greet import greet
 
-    def loop(people: list[str]) -> None:
+    def greet_people(people: list[str]) -> None:
         for person in people:
             print(greet(person))
 
-    loop(people)
+    greet_people(people)    
     ```
 
     Explicação:
