@@ -1,336 +1,371 @@
-# 📌 Índice
+# INTRODUÇÃO AO PYTHON COM DOCKER
 
-1. [Criar a pasta do projeto](#1---criar-a-pasta-do-projeto)
-2. [Criar o ambiente virtual](#2---criar-o-ambiente-virtual)
-    - 2.1 [Criar o `.venv`](#21---criar-o-venv)
-    - 2.2 [Ativar o ambiente virtual](#22---ativar-o-ambiente-virtual)
-    - 2.3 [Instalar dependências](#23---instalar-dependências)
-    - 2.4 [Desativar o ambiente virtual](#24---desativar-o-ambiente-virtual)
-3. [Criar um script simples](#3---criar-um-script-simples)
-4. [Rodar o script localmente](#4---rodar-o-script-localmente)
-5. [Criar o Dockerfile](#5---criar-o-dockerfile)
-    - 5.1 [FROM](#51---from-python312-slim)
-    - 5.2 [WORKDIR](#52---workdir-app)
-    - 5.3 [COPY](#53---copy--app)
-    - 5.4 [CMD](#54---cmd-python-hellopy)
-6. [Construir a imagem](#6---construir-a-imagem)
-7. [Rodar o container](#7---rodar-o-container)
-8. [Desenvolvimento Interativo (Modo Live)](#8---desenvolvimento-interativo-modo-live)
-9. [Estrutura definitiva](#9---estrutura-definitiva-para-iniciar-o-projeto)
+## Objetivo
 
----
+Este README documenta o processo básico para iniciar um projeto em Python, utilizando tanto o ambiente virtual local (`.venv`) quanto a containerização com Docker.  
+A proposta é construir uma base sólida para rodar scripts simples, instalar dependências e preparar um ambiente reprodutível de desenvolvimento.
 
-# 1 - Criar a pasta do projeto
+## Pré-requisitos
 
-```sh
-mkdir my_python_project
-cd my_python_project
-```
+Antes de começar, certifique-se de ter instalado:
 
-<p>Estrutura inicial:</p>
-
-```sh
-my_python_project/
-```
+- Python 3
+- pip
+- Docker
+- Terminal / Shell (Linux, macOS ou WSL no Windows)
 
 <br />
 
-# 2 - Criar o ambiente virtual
+# <strong>SUMÁRIO</strong>
 
-## 2.1 - Criar o `.venv`
+- ## [1 - INICIANDO UM PROJETO](#1---iniciando-um-projeto)
+    - #### [1.1 - Criar a pasta do projeto](#11---criar-a-pasta-do-projeto)
+    - #### [1.2 - Criar o ambiente virtual (`.venv`)](#12---criar-o-ambiente-virtual-venv)
+    - #### [1.3 - Ativar o ambiente virtual](#13---ativar-o-ambiente-virtual)
+    - #### [1.4 - Instalar dependências](#14---instalar-dependências)
+    - #### [1.5 - Desativar o ambiente virtual](#15---desativar-o-ambiente-virtual)
 
-```sh
-python3 -m venv .venv
-```
+- ## [2 - HELLO, WORLD!](#2---hello-world)
+    - #### [2.1 - Criar um script simples](#21---criar-um-script-simples)
+    - #### [2.2 - Executar o script localmente](#22---executar-o-script-localmente)
+    - #### [2.3 - Rodar o script em modo interativo](#23---rodar-o-script-em-modo-interativo)
 
-<p>Esse comando cria um ambiente virtual dentro da pasta do projeto.</p>
+- ## [3 - PYTHON COM DOCKER](#3---python-com-docker)
+    - #### [3.1 - Criar o Dockerfile](#31---criar-o-dockerfile)
+    - #### [3.2 - Entendendo o Dockerfile](#32---entendendo-o-dockerfile)
+    - #### [3.3 - Criar o `.dockerignore`](#33---criar-o-dockerignore)
 
-<p>Estrutura agora:</p>
+- ## [4 - EXECUTANDO O PROJETO COM DOCKER](#4---executando-o-projeto-com-docker)
+    - #### [4.1 - Construir a imagem](#41---construir-a-imagem)
+    - #### [4.2 - Rodar o container](#42---rodar-o-container)
+    - #### [4.3 - Desenvolvimento interativo (modo live)](#43---desenvolvimento-interativo-modo-live)
 
-```sh
-my_python_project/
-└── .venv/
-```
+- ## [5 - ESTRUTURA FINAL DO PROJETO](#5---estrutura-final-do-projeto)
+
+<br />
+<hr>
+<br />
+
+## <strong>1 - INICIANDO UM PROJETO</strong>
+
+- ### <strong>1.1 - Criar a pasta do projeto</strong>
+
+    O primeiro passo é criar o diretório onde o projeto ficará armazenado e navegar até ele:
+
+    ```sh
+    mkdir my_python_project && cd my_python_project
+    ```
+
+    Estrutura inicial:
+
+    ```sh
+    my_python_project/
+    ```
+
+- ### <strong>1.2 - Criar o ambiente virtual (`.venv`)</strong>
+
+    O ambiente virtual permite isolar as dependências do projeto, evitando conflitos com outros projetos Python instalados na máquina.
+
+    ```sh
+    python3 -m venv .venv
+    ```
+
+    Estrutura agora:
+
+    ```sh
+    my_python_project/
+    └── .venv/
+    ```
+
+- ### <strong>1.3 - Ativar o ambiente virtual</strong>
+
+    Para ativar o ambiente virtual no terminal:
+
+    ```sh
+    source .venv/bin/activate
+    ```
+
+    Após ativar, o terminal normalmente exibirá algo semelhante a:
+
+    ```sh
+    (.venv) user@machine my_python_project %
+    ```
+
+- ### <strong>1.4 - Instalar dependências</strong>
+
+    Para instalar bibliotecas externas no projeto:
+
+    ```sh
+    python3 -m pip install nome_do_pacote
+    ```
+
+    ou
+
+    ```sh
+    pip install nome_do_pacote
+    ```
+
+    Exemplo:
+
+    ```sh
+    python3 -m pip install numpy
+    ```
+
+    **Diferença entre os comandos:**
+
+    - `python3 -m pip install` garante que você está usando o `pip` da versão correta do Python.
+    - `pip install` usa o `pip` padrão configurado no sistema.
+
+    Se houver múltiplas versões do Python instaladas, prefira:
+
+    ```sh
+    python3 -m pip install nome_do_pacote
+    ```
+
+- ### <strong>1.5 - Desativar o ambiente virtual</strong>
+
+    Quando quiser sair do ambiente virtual:
+
+    ```sh
+    deactivate
+    ```
 
 <br />
 
-## 2.2 - Ativar o ambiente virtual
+## <strong>2 - HELLO, WORLD!</strong>
 
-```sh
-source .venv/bin/activate
-```
+- ### <strong>2.1 - Criar um script simples</strong>
 
-<p>Após ativar, o terminal normalmente exibirá algo assim:</p>
+    Crie o arquivo:
 
-```sh
-(.venv) user@machine my_python_project %
-```
+    ```sh
+    touch hello.py
+    ```
 
-<br />
+    Conteúdo:
 
-## 2.3 - Instalar dependências
+    ```py
+    # hello.py
 
-```sh
-python3 -m pip install <nome_do_pacote>
-```
+    def greet():
+        print("Hello, world!")
 
-ou
+    greet()
+    ```
 
-```sh
-pip install <nome_do_pacote>
-```
+    Estrutura agora:
 
-<p>Exemplo:</p>
+    ```sh
+    my_python_project/
+    ├── .venv/
+    └── hello.py
+    ```
 
-```sh
-python3 -m pip install numpy
-```
+- ### <strong>2.2 - Executar o script localmente</strong>
 
-<p><strong>Diferença entre os dois:</strong></p>
+    Para rodar o script com o Python instalado localmente:
 
-- <code>python3 -m pip install</code> garante que você está usando o <code>pip</code> da versão correta do Python.
-- <code>pip install</code> usa o <code>pip</code> padrão configurado no sistema.
+    ```sh
+    python3 hello.py
+    ```
 
-<p>Se houver múltiplas versões do Python instaladas, prefira:</p>
+    Saída esperada:
 
-```sh
-python3 -m pip install <nome_do_pacote>
-```
+    ```sh
+    Hello, world!
+    ```
 
-<br />
+- ### <strong>2.3 - Rodar o script em modo interativo</strong>
 
-## 2.4 - Desativar o ambiente virtual
+    Se quiser abrir o interpretador Python com o script já carregado:
 
-```sh
-deactivate
-```
-
-<br />
-
-# 3 - Criar um script simples
-
-<p>Crie o arquivo:</p>
-
-```sh
-touch hello.py
-```
-
-<p>Conteúdo:</p>
-
-```py
-# my_python_project/hello.py
-
-def greet():
-    print("Hello, world!")
-
-greet()
-```
-
-<p>Estrutura agora:</p>
-
-```sh
-my_python_project/
-├── .venv/
-└── hello.py
-```
+    ```sh
+    python3 -i hello.py
+    ```
 
 <br />
 
-# 4 - Rodar o script localmente
+## <strong>3 - PYTHON COM DOCKER</strong>
 
-```sh
-python3 hello.py
-```
+- ### <strong>3.1 - Criar o Dockerfile</strong>
 
-<p>Saída esperada:</p>
+    Agora vamos criar uma imagem Docker para rodar o projeto sem depender do Python instalado diretamente na máquina.
 
-```sh
-Hello, world!
-```
+    ```sh
+    touch Dockerfile
+    ```
 
-<p>Se quiser abrir o terminal interativo com o script carregado:</p>
+    Conteúdo:
 
-```sh
-python3 -i hello.py
-```
+    ```Dockerfile
+    # my_python_project/Dockerfile
 
-<br />
+    FROM python:3.12-slim
 
-# 5 - Criar o Dockerfile
+    WORKDIR /app
 
-<p>Agora vamos criar uma imagem Docker para rodar o projeto sem depender do Python instalado na máquina.</p>
+    COPY . /app
 
-```sh
-touch Dockerfile
-```
+    CMD ["python", "hello.py"]
+    ```
 
-<p>Conteúdo:</p>
+- ### <strong>3.2 - Entendendo o Dockerfile</strong>
 
-```Dockerfile
-# my_python_project/Dockerfile
+    Vamos analisar cada instrução:
 
-FROM python:3.12-slim
+    #### `FROM python:3.12-slim`
 
-WORKDIR /app
+    Define a imagem base:
 
-COPY . /app
+    ```Dockerfile
+    python:3.12-slim
+    ```
 
-CMD ["python", "hello.py"]
-```
+    Isso significa:
 
-<p>Vamos entender cada linha.</p>
+    ```sh
+    Linux + Python 3.12 (versão enxuta)
+    ```
 
----
+    A versão `slim` é mais leve e adequada para ambientes simples ou de produção.
 
-## 5.1 - FROM python:3.12-slim
+    #### `WORKDIR /app`
 
-<p>Define a imagem base:</p>
+    Define o diretório de trabalho dentro do container.
 
-```Dockerfile
-python:3.12-slim
-```
+    Equivalente a:
 
-<p>significa:</p>
+    ```sh
+    cd /app
+    ```
 
-```sh
-Linux + Python 3.12 (versão enxuta)
-```
+    #### `COPY . /app`
 
-<p>A versão <code>slim</code> é mais leve e ideal para projetos simples e ambientes de produção.</p>
+    Copia os arquivos do projeto para dentro do container.
 
----
+    ```sh
+    host project
+      │
+      ▼
+    container /app
+    ```
 
-## 5.2 - WORKDIR /app
+    O container terá algo como:
 
-<p>Define o diretório de trabalho dentro do container.</p>
+    ```sh
+    /app
+    ├── hello.py
+    └── Dockerfile
+    ```
 
-<p>Equivalente a:</p>
+    #### `CMD ["python", "hello.py"]`
 
-```sh
-cd /app
-```
+    Define o comando executado quando o container iniciar.
 
----
+    Equivalente a:
 
-## 5.3 - COPY . /app
+    ```sh
+    python hello.py
+    ```
 
-<p>Copia os arquivos do projeto para dentro do container.</p>
+- ### <strong>3.3 - Criar o `.dockerignore`</strong>
 
-```sh
-host project
-  │
-  ▼
-container /app
-```
+    É uma boa prática evitar copiar arquivos desnecessários para dentro da imagem, como o ambiente virtual local.
 
-<p>Então o container terá algo como:</p>
+    Crie o arquivo:
 
-```sh
-/app
-├── hello.py
-└── Dockerfile
-```
+    ```sh
+    touch .dockerignore
+    ```
 
----
+    Conteúdo sugerido:
 
-## 5.4 - CMD ["python", "hello.py"]
-
-<p>Define o comando executado quando o container iniciar.</p>
-
-<p>Equivalente a rodar:</p>
-
-```sh
-python hello.py
-```
-
-<p>Dica: Adicione um arquivo <code>.dockerignore</code> para evitar copiar arquivos desnecessários para dentro da imagem, como o <code>.venv</code>.</p>
-
-<p>Exemplo de <code>.dockerignore</code>:</p>
-
-```dockerignore
-.venv
-__pycache__
-*.pyc
-```
+    ```dockerignore
+    .venv
+    __pycache__
+    *.pyc
+    ```
 
 <br />
 
-# 6 - Construir a imagem
+## <strong>4 - EXECUTANDO O PROJETO COM DOCKER</strong>
 
-```sh
-docker build -t my_python_project .
-```
+- ### <strong>4.1 - Construir a imagem</strong>
 
-<p>Explicação:</p>
+    Para construir a imagem Docker do projeto:
 
-```sh
-| parte                    | significado                                                           |
-|--------------------------|-----------------------------------------------------------------------|
-| docker build             | Comando para criar uma imagem a partir de um Dockerfile              |
-| -t my_python_project     | Tag: nomeia a imagem para podermos referenciá-la depois              |
-| .                        | Contexto: indica que os arquivos e o Dockerfile estão na pasta atual |
-```
+    ```sh
+    docker build -t my_python_project .
+    ```
+
+    Explicação:
+
+    ```sh
+    | parte                | significado                                                           |
+    |----------------------|-----------------------------------------------------------------------|
+    | docker build         | Comando para criar uma imagem a partir de um Dockerfile              |
+    | -t my_python_project | Tag: nomeia a imagem para podermos referenciá-la depois              |
+    | .                    | Contexto: indica que os arquivos e o Dockerfile estão na pasta atual |
+    ```
+
+- ### <strong>4.2 - Rodar o container</strong>
+
+    Para executar o projeto com Docker:
+
+    ```sh
+    docker run --rm my_python_project
+    ```
+
+    Saída esperada:
+
+    ```sh
+    Hello, world!
+    ```
+
+    Explicação:
+
+    - `docker run`: executa um container
+    - `--rm`: remove o container automaticamente ao finalizar
+    - `my_python_project`: nome da imagem criada
+
+- ### <strong>4.3 - Desenvolvimento interativo (modo live)</strong>
+
+    Se quiser entrar no container para rodar comandos e testar alterações em tempo real:
+
+    ```sh
+    docker run -it --rm -v "$(pwd)":/app my_python_project bash
+    ```
+
+    O que este comando faz?
+
+    - `-it`: abre um terminal interativo dentro do container
+    - `--rm`: remove o container automaticamente ao finalizar
+    - `-v "$(pwd)":/app`: sincroniza a pasta atual da máquina com a pasta `/app` do container
+    - `bash`: em vez de apenas executar o script, abre um terminal Linux dentro do container
+
+    Uma vez dentro do container, você verá algo como:
+
+    ```sh
+    root@container_id:/app#
+    ```
+
+    Agora execute manualmente:
+
+    ```sh
+    python hello.py
+    ```
+
+    Saída:
+
+    ```sh
+    Hello, world!
+    ```
 
 <br />
 
-# 7 - Rodar o container
+## <strong>5 - ESTRUTURA FINAL DO PROJETO</strong>
 
-```sh
-docker run --rm my_python_project
-```
-
-<p>Saída esperada:</p>
-
-```sh
-Hello, world!
-```
-
-<p>Explicação:</p>
-
-- <code>docker run</code>: executa um container
-- <code>--rm</code>: remove o container automaticamente ao finalizar
-- <code>my_python_project</code>: nome da imagem criada
-
-<br />
-
-# 8 - Desenvolvimento Interativo (Modo Live)
-
-<p>Se quiser entrar no container para rodar comandos e testar alterações em tempo real, execute:</p>
-
-```sh
-docker run -it --rm -v "$(pwd)":/app my_python_project bash
-```
-
-<p>O que este comando faz?</p>
-
-- <code>-it</code>: abre um terminal interativo dentro do container
-- <code>--rm</code>: remove o container ao finalizar
-- <code>-v "$(pwd)":/app</code>: sincroniza sua pasta atual com a pasta <code>/app</code> do container
-- <code>bash</code>: em vez de executar apenas o script, abre o terminal Linux do container
-
-<p>Uma vez dentro do container, você verá algo como:</p>
-
-```sh
-root@container_id:/app#
-```
-
-<p>Agora execute manualmente:</p>
-
-```sh
-python hello.py
-```
-
-<p>Saída:</p>
-
-```sh
-Hello, world!
-```
-
-<br />
-
-# 9 - Estrutura definitiva para iniciar o projeto
-
-<p>Seu projeto agora está preparado para rodar tanto localmente quanto com Docker:</p>
+Ao final, o projeto estará organizado assim:
 
 ```sh
 my_python_project/
@@ -340,15 +375,26 @@ my_python_project/
 └── hello.py
 ```
 
-<p>Qualquer pessoa pode rodar:</p>
+Esse projeto agora pode ser executado de duas formas:
+
+### Rodando localmente
+
+```sh
+python3 hello.py
+```
+
+### Rodando com Docker
 
 ```sh
 docker build -t my_python_project .
 docker run --rm my_python_project
 ```
 
-<p>Ou, se quiser entrar no container:</p>
+### Entrando no container em modo interativo
 
 ```sh
 docker run -it --rm -v "$(pwd)":/app my_python_project bash
 ```
+
+<br />
+<hr>
